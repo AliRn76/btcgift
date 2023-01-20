@@ -14,7 +14,7 @@ class Blog(models.Model):
     title = models.CharField(db_column='Title', max_length=31)
     summary = models.CharField(db_column='Summary', max_length=63)
     text = models.TextField(db_column='Text')
-    cover = models.ImageField(db_column='Cover', upload_to=blog_covers_path, blank=True, null=True)
+    cover = models.ImageField(db_column='Cover', upload_to=blog_covers_path)
     like_count = models.IntegerField(db_column='LikeCount', default=0)
     view_count = models.IntegerField(db_column='ViewCount', default=0)
     comment_count = models.IntegerField(db_column='CommentCount', default=0)
