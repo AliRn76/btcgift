@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
 
+from config.base_manager import BaseManager
 from user.models import User
 
 
@@ -25,6 +26,8 @@ class Blog(models.Model):
     comment_count = models.IntegerField(db_column='CommentCount', default=0)
     date_updated = models.DateTimeField(db_column='DateUpdated', auto_now=True)
     date_created = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
+
+    objects = BaseManager()
 
     class Meta:
         db_table = 'Blog'
@@ -55,6 +58,7 @@ class BlogCommentManager(models.Manager):
 class BlogComment(models.Model):
     id = models.BigAutoField(db_column='ID', primary_key=True)
     is_approved = models.BooleanField(db_column='IsApproved', default=False)
+    text = models.TextField(db_column='Text', max_length=255)
     date_created = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
     blog_id = models.ForeignKey(Blog, db_column='BlogID', on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, db_column='UserID', on_delete=models.CASCADE)
@@ -70,7 +74,7 @@ class BlogComment(models.Model):
 def increment_blog_comment_count(sender, instance=None, created=False, **kwargs):
     if created:
         instance.blog_id.comment_count = F('comment_count') + 1
-        instance.blog_id.update(update_fields=['comment_count'])
+        instance.blog_id.save(update_fields=['comment_count'])
 
 
 class BlogLike(models.Model):

@@ -1,14 +1,14 @@
 from rest_framework import status
-from rest_framework.generics import CreateAPIView, ListCreateAPIView
+from rest_framework.generics import CreateAPIView, ListCreateAPIView, UpdateAPIView, RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from config.kavenegar import send_otp_sms
 from config.settings import OTP_EXP
 from config.utils import generate_otp
-from user.messages import OPTSentSuccessfullyMessage
+from user.messages import OPTSentSuccessfullyMessage, ProfileUpdatedMessage
 from user.models import Address
-from user.serializers import LoginSerializer, AddressSerializer, OTPSerializer
+from user.serializers import LoginSerializer, AddressSerializer, OTPSerializer, UserProfileSerializer
 
 
 class OTPAPIView(CreateAPIView):
@@ -23,6 +23,18 @@ class OTPAPIView(CreateAPIView):
 
 class LoginAPIView(CreateAPIView):
     serializer_class = LoginSerializer
+
+
+class ProfileAPIView(RetrieveUpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserProfileSerializer
+
+    def get_object(self):
+        return self.request.user
+
+    def update(self, request, *args, **kwargs):
+        super().update(request, *args, **kwargs)
+        return {'detail': ProfileUpdatedMessage}
 
 
 class AddressAPIView(ListCreateAPIView):

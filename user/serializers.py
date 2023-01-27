@@ -5,7 +5,7 @@ from rest_framework.exceptions import ValidationError
 from config.settings import OTP_EXP
 from config.utils import validate_phone_number
 from user.authentication import JWTAuthentication
-from user.messages import OPTSentSuccessfullyMessage
+from user.messages import OPTSentSuccessfullyMessage, ProfileUpdatedMessage
 from user.models import User, Address
 
 
@@ -46,7 +46,8 @@ class LoginSerializer(PhoneNumberSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        exclude = ['password', 'is_banned']
+        exclude = ['password', 'is_banned', 'is_admin']
+        read_only_fields = ['phone_number']
 
 
 class AddressSerializer(serializers.ModelSerializer):
