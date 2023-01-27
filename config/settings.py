@@ -3,6 +3,7 @@
 Django settings for ruby project.
 Author Ali RajabNezhad 30 Dec 2022
 """
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,7 +20,7 @@ SECRET_KEY = 'django-insecure-qvgdgpc0bwgecn#d#h&gkr_0abo4m_x_jl!c0^o8=un)q3_a%i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -32,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'faq',
     'user',
     'blog',
     'card',
@@ -76,6 +78,13 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_RATES': {'anon': '30 /min'},
+    'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer', ),
+    'DEFAULT_THROTTLE_CLASSES': ['rest_framework.throttling.AnonRateThrottle', ],
+    'DEFAULT_AUTHENTICATION_CLASSES': ['user.authentication.JWTAuthentication'],
+}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -92,6 +101,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'user.User'
+
+JWT_EXP = timedelta(days=99).total_seconds()
+
+OTP_EXP = int(timedelta(minutes=1).total_seconds())
 
 LANGUAGE_CODE = 'en-us'
 
