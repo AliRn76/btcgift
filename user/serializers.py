@@ -2,8 +2,10 @@ from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
+from config.settings import OTP_EXP
 from config.utils import validate_phone_number
 from user.authentication import JWTAuthentication
+from user.messages import OPTSentSuccessfullyMessage
 from user.models import User, Address
 
 
@@ -16,7 +18,13 @@ class PhoneNumberSerializer(serializers.Serializer):
         return _phone_number
 
 
-class ConfirmOTPSerializer(PhoneNumberSerializer):
+class OTPSerializer(PhoneNumberSerializer):
+
+    def to_representation(self, instance):
+        return {'detail': OPTSentSuccessfullyMessage, 'otp_exp': OTP_EXP}
+
+
+class LoginSerializer(PhoneNumberSerializer):
     otp = serializers.CharField()
 
     def validate_otp(self, otp):

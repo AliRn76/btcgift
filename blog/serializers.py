@@ -21,8 +21,7 @@ class RetrieveBlogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = [field.name for field in model._meta.fields]
-        fields.extend(['comments', 'liked'])
+        fields = '__all__'
 
     def get_liked(self, blog):
         user = self.context['request'].user

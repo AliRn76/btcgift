@@ -7,3 +7,5 @@ requests
 bitcoinaddress==0.1.5
 gunicorn
 python-jose
+base58
+kavenegar==1.1.2

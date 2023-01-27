@@ -11,11 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 QR_DIR = BASE_DIR / 'qr_codes'
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-qvgdgpc0bwgecn#d#h&gkr_0abo4m_x_jl!c0^o8=un)q3_a%i'
+
+KAVENEGAR = '...'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,7 +98,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": REDIS_URL,
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
+#         },
+#         "KEY_PREFIX": "cache"
+#     }
+# }
+
+
 AUTH_USER_MODEL = 'user.User'
+
+OTP_LEN = 4
 
 JWT_EXP = timedelta(days=99).total_seconds()
 

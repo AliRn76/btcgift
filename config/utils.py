@@ -1,4 +1,7 @@
+import random
 import re
+
+from config.settings import OTP_LEN
 
 
 def validate_phone_number(phone_number):
@@ -10,3 +13,7 @@ def validate_phone_number(phone_number):
 
 def client_ip(context):
     return context['request'].META.get('REMOTE_ADDR')
+
+
+def generate_otp():
+    return random.randint(10**(OTP_LEN-1), (10**OTP_LEN)-1)
