@@ -10,10 +10,16 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class BlogMinimumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blog
+        fields = ['id', 'title', 'time_to_read', 'cover']
+
+
 class BlogCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogComment
-        exclude = ['user_id', 'blog_id', 'is_approved']
+        exclude = ['user_id', 'blog_id']
 
     def create(self, validated_data):
         blog = Blog.objects.get_or_raise(id=self.context['view'].kwargs['blog_id'])
@@ -28,22 +34,24 @@ class BlogCommentSerializer(serializers.ModelSerializer):
 
 
 class RetrieveBlogSerializer(serializers.ModelSerializer):
-    comments = BlogCommentSerializer(source='blogcomment_set', many=True)
+    comments = serializers.SerializerMethodField()
     liked = serializers.SerializerMethodField()
+    next_blog = BlogMinimumSerializer(source='get_next_blog')
+    prev_blog = BlogMinimumSerializer(source='get_prev_blog')
 
     class Meta:
         model = Blog
         fields = '__all__'
-
-    def get_comments(self, blog):
-        queryset = BlogComment.approved.filter(blog_id=blog.id)[:10]
-        return BlogCommentSerializer(queryset, many=True)
 
     def get_liked(self, blog):
         user = self.context['request'].user
         if user.is_authenticated and BlogLike.objects.filter(user_id=user.id, blog_id=blog.id).first():
             return True
         return False
+
+    def get_comments(self, blog):
+        queryset = BlogComment.objects.first_10(blog_id=blog.id, user_id=self.context['request'].user.id)
+        return BlogCommentSerializer(queryset, many=True, context=self.context).data
 
     def to_representation(self, instance):
         instance.view_count += 1  # For Perfection :)

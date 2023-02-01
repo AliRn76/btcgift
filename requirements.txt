@@ -2,7 +2,6 @@ Django==4.1.4
 djangorestframework==3.14.0
 Pillow==9.3.0
 bit==0.8.0
-bitcoinlib==0.6.7
 requests
 bitcoinaddress==0.1.5
 gunicorn

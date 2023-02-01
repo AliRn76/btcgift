@@ -27,5 +27,4 @@ class BlogCommentsAPIView(ListCreateAPIView):
     serializer_class = BlogCommentSerializer
 
     def get_queryset(self):
-        return BlogComment.approved.filter(blog_id=self.kwargs['blog_id'])
-
+        return BlogComment.objects.first_10(blog_id=self.kwargs['blog_id'], user_id=self.request.user.id)

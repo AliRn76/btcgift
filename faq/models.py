@@ -11,7 +11,7 @@ class FAQ(models.Model):
     question = models.CharField(db_column='Question', max_length=255)
     answer = models.TextField(db_column='Answer')
     is_active = models.BooleanField(db_column='IsActive', default=True)
-    order = models.PositiveIntegerField(db_column='Order')
+    order = models.PositiveIntegerField(db_column='Order')  # Order in list
     date_updated = models.DateTimeField(db_column='DateUpdated', auto_now=True)
     date_created = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
 
