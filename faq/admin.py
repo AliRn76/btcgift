@@ -1,8 +1,13 @@
 from django.contrib import admin
-from django.apps import apps
+
+from faq.models import FAQ
 
 
-app = apps.get_app_config('faq')
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('id', 'question', 'is_active', 'date_created')
+    search_fields = ('id', 'title', 'summary', 'description')
 
-for model_name, model in app.models.items():
-    admin.site.register(model)
+    ordering = ('-id',)
+
+
+admin.site.register(FAQ, FAQAdmin)

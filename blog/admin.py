@@ -1,8 +1,23 @@
 from django.contrib import admin
-from django.apps import apps
+from blog.models import Blog, BlogComment, BlogLike, BlogView
 
 
-app = apps.get_app_config('blog')
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'summary', 'date_updated', 'date_created')
+    search_fields = ('id', 'title', 'summary', 'description')
+    readonly_fields = ('like_count', 'view_count', 'comment_count')
 
-for model_name, model in app.models.items():
-    admin.site.register(model)
+    ordering = ('-id',)
+
+
+class BlogCommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'is_approved', 'text', 'date_created')
+    search_fields = ('id', 'text')
+
+    ordering = ('-id',)
+
+
+admin.site.register(Blog, BlogAdmin)
+admin.site.register(BlogComment, BlogCommentAdmin)
+admin.site.register(BlogLike)
+admin.site.register(BlogView)
