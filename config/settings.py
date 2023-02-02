@@ -5,13 +5,12 @@ Author Ali RajabNezhad 30 Dec 2022
 """
 from datetime import timedelta
 from pathlib import Path
+from django.core.management import utils
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 QR_DIR = BASE_DIR / 'qr_codes'
-
-
-SECRET_KEY = 'django-insecure-qvgdgpc0bwgecn#d#h&gkr_0abo4m_x_jl!c0^o8=un)q3_a%i'
+SECRET_KEY = utils.get_random_secret_key()
 
 KAVENEGAR = '...'
 
@@ -21,16 +20,24 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://api.btcgift.shop']
+CORS_ALLOWED_ORIGINS = [
+    'https://btcgift.shohp',
+    'http://localhost:3000'
+]
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_soft.apps.AdminSoftDashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'corsheaders',
 
     'faq',
     'user',
@@ -41,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'home/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,8 +135,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+
+LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

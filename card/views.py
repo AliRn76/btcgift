@@ -1,9 +1,7 @@
 import base58
-from django.db.models import Q
-from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, ListCreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from card.models import PurchasedCard, Order
 from card.serializers import OrderSerializer, MyCardsSerializer

@@ -1,1 +1,905 @@
-[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2023-02-01T23:14:24.872Z", "user": 1, "content_type": 9, "object_id": "1", "object_repr": "Blog object (1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2023-02-01T23:16:02.467Z", "user": 1, "content_type": 9, "object_id": "2", "object_repr": "Blog object (2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 3, "fields": {"action_time": "2023-02-01T23:18:27.406Z", "user": 1, "content_type": 9, "object_id": "3", "object_repr": "Blog object (3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view group", "content_type": 3, "codename": "view_group"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add content type", "content_type": 4, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change content type", "content_type": 4, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete content type", "content_type": 4, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view content type", "content_type": 4, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add session", "content_type": 5, "codename": "add_session"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can change session", "content_type": 5, "codename": "change_session"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can delete session", "content_type": 5, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view session", "content_type": 5, "codename": "view_session"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add faq", "content_type": 6, "codename": "add_faq"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change faq", "content_type": 6, "codename": "change_faq"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can delete faq", "content_type": 6, "codename": "delete_faq"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can view faq", "content_type": 6, "codename": "view_faq"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add user", "content_type": 7, "codename": "add_user"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change user", "content_type": 7, "codename": "change_user"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete user", "content_type": 7, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can view user", "content_type": 7, "codename": "view_user"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can add address", "content_type": 8, "codename": "add_address"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change address", "content_type": 8, "codename": "change_address"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete address", "content_type": 8, "codename": "delete_address"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view address", "content_type": 8, "codename": "view_address"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can add blog", "content_type": 9, "codename": "add_blog"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change blog", "content_type": 9, "codename": "change_blog"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete blog", "content_type": 9, "codename": "delete_blog"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view blog", "content_type": 9, "codename": "view_blog"}}, {"model": "auth.permission", "pk": 37, "fields": {"name": "Can add blog view", "content_type": 10, "codename": "add_blogview"}}, {"model": "auth.permission", "pk": 38, "fields": {"name": "Can change blog view", "content_type": 10, "codename": "change_blogview"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete blog view", "content_type": 10, "codename": "delete_blogview"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can view blog view", "content_type": 10, "codename": "view_blogview"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can add blog like", "content_type": 11, "codename": "add_bloglike"}}, {"model": "auth.permission", "pk": 42, "fields": {"name": "Can change blog like", "content_type": 11, "codename": "change_bloglike"}}, {"model": "auth.permission", "pk": 43, "fields": {"name": "Can delete blog like", "content_type": 11, "codename": "delete_bloglike"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can view blog like", "content_type": 11, "codename": "view_bloglike"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can add blog comment", "content_type": 12, "codename": "add_blogcomment"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can change blog comment", "content_type": 12, "codename": "change_blogcomment"}}, {"model": "auth.permission", "pk": 47, "fields": {"name": "Can delete blog comment", "content_type": 12, "codename": "delete_blogcomment"}}, {"model": "auth.permission", "pk": 48, "fields": {"name": "Can view blog comment", "content_type": 12, "codename": "view_blogcomment"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add card", "content_type": 13, "codename": "add_card"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change card", "content_type": 13, "codename": "change_card"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete card", "content_type": 13, "codename": "delete_card"}}, {"model": "auth.permission", "pk": 52, "fields": {"name": "Can view card", "content_type": 13, "codename": "view_card"}}, {"model": "auth.permission", "pk": 53, "fields": {"name": "Can add purchased card", "content_type": 14, "codename": "add_purchasedcard"}}, {"model": "auth.permission", "pk": 54, "fields": {"name": "Can change purchased card", "content_type": 14, "codename": "change_purchasedcard"}}, {"model": "auth.permission", "pk": 55, "fields": {"name": "Can delete purchased card", "content_type": 14, "codename": "delete_purchasedcard"}}, {"model": "auth.permission", "pk": 56, "fields": {"name": "Can view purchased card", "content_type": 14, "codename": "view_purchasedcard"}}, {"model": "auth.permission", "pk": 57, "fields": {"name": "Can add order", "content_type": 15, "codename": "add_order"}}, {"model": "auth.permission", "pk": 58, "fields": {"name": "Can change order", "content_type": 15, "codename": "change_order"}}, {"model": "auth.permission", "pk": 59, "fields": {"name": "Can delete order", "content_type": 15, "codename": "delete_order"}}, {"model": "auth.permission", "pk": 60, "fields": {"name": "Can view order", "content_type": 15, "codename": "view_order"}}, {"model": "auth.permission", "pk": 61, "fields": {"name": "Can add support", "content_type": 16, "codename": "add_support"}}, {"model": "auth.permission", "pk": 62, "fields": {"name": "Can change support", "content_type": 16, "codename": "change_support"}}, {"model": "auth.permission", "pk": 63, "fields": {"name": "Can delete support", "content_type": 16, "codename": "delete_support"}}, {"model": "auth.permission", "pk": 64, "fields": {"name": "Can view support", "content_type": 16, "codename": "view_support"}}, {"model": "auth.permission", "pk": 65, "fields": {"name": "Can add support messages", "content_type": 17, "codename": "add_supportmessages"}}, {"model": "auth.permission", "pk": 66, "fields": {"name": "Can change support messages", "content_type": 17, "codename": "change_supportmessages"}}, {"model": "auth.permission", "pk": 67, "fields": {"name": "Can delete support messages", "content_type": 17, "codename": "delete_supportmessages"}}, {"model": "auth.permission", "pk": 68, "fields": {"name": "Can view support messages", "content_type": 17, "codename": "view_supportmessages"}}, {"model": "auth.permission", "pk": 69, "fields": {"name": "Can add wallet", "content_type": 18, "codename": "add_wallet"}}, {"model": "auth.permission", "pk": 70, "fields": {"name": "Can change wallet", "content_type": 18, "codename": "change_wallet"}}, {"model": "auth.permission", "pk": 71, "fields": {"name": "Can delete wallet", "content_type": 18, "codename": "delete_wallet"}}, {"model": "auth.permission", "pk": 72, "fields": {"name": "Can view wallet", "content_type": 18, "codename": "view_wallet"}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "faq", "model": "faq"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "user", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "user", "model": "address"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "blog", "model": "blog"}}, {"model": "contenttypes.contenttype", "pk": 10, "fields": {"app_label": "blog", "model": "blogview"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "blog", "model": "bloglike"}}, {"model": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "blog", "model": "blogcomment"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app_label": "card", "model": "card"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "card", "model": "purchasedcard"}}, {"model": "contenttypes.contenttype", "pk": 15, "fields": {"app_label": "card", "model": "order"}}, {"model": "contenttypes.contenttype", "pk": 16, "fields": {"app_label": "support", "model": "support"}}, {"model": "contenttypes.contenttype", "pk": 17, "fields": {"app_label": "support", "model": "supportmessages"}}, {"model": "contenttypes.contenttype", "pk": 18, "fields": {"app_label": "payment", "model": "wallet"}}, {"model": "sessions.session", "pk": "d2sqt0cpwzlw7mmysbw1pwm5kjcp9o6l", "fields": {"session_data": ".eJxVjEsOwjAMBe-SNYpip3Ebluw5Q2XHKS2gROpnhbg7VOoCtm9m3sv0vK1jvy157ic1ZwPm9LsJp0cuO9A7l1u1qZZ1nsTuij3oYq9V8_NyuH8HIy_jt84-NTAEim7okCJ6QvAtICbXhFZ8ZOyIxCVQYQiikYmcaGjRpwzOvD-vJTbK:1pNMDV:7czqe0soAEQDyj1nrh4PcucKOTzePL8iwVzABt_CNT4", "expire_date": "2023-02-15T23:08:37.171Z"}}, {"model": "user.user", "pk": 1, "fields": {"phone_number": "9037853055", "password": "pbkdf2_sha256$390000$5kA1y6ZKWajzhO2vBgEZkW$S0Ba2hMJxfJZQhU1csaCBJ2m+evRur36Kvj2Zkfafhg=", "first_name": "", "last_name": "", "is_banned": false, "is_male": null, "is_admin": true, "birth_date": null, "last_login": "2023-02-01T23:08:37.166Z", "date_joined": "2023-02-01T23:08:28.364Z"}}, {"model": "blog.blog", "pk": 1, "fields": {"title": "استخراج بیت کوین", "summary": "استخراج بیت کوین با معنی ماینیگ در هم تنیده شده، آیا ماینینگ ار", "text": "پیدایش بیت کوین, با مفهومی با عنوان ماینینگ یا همان استخراج بیت کوین گره خورده است. اما ماینینگ چیست؟ چه کسانی ماین می‌کنند؟ هدف ماینینگ چیست؟ چه طور ماینینگ اتفاق می‌افتد؟ و سوالاتی از این دست نظر کاربران را به خود جلب کرده.\r\n\r\n به زبانی ساده در شبکه بلاک چین, معادلات پیچیده‌ای ریاضی باید حل بشود تا در نتیجه آن بیت کوین تولید شود. اما حل این معادلات کار بسیار سختی است که شبکه بر همین اصل بنا شده و اصطلاحا به ان اثبات کار یا Proof Of Work گویند.\r\n\r\nبر اساس پروتکل یا همان قوانین بیت کوین، فقط تعداد ۲۱ میلیون واحد از آن وجود خواهد داشت, درنتیجه با تولید بیشتر, سختی استخراج بیت کوین بیشتر می‌شود. همچنین، هر چهار سال یکبار طی رویدادی به نام «هاوینگ»، میزان بیت کوین‌های تولیدشده به شکل ناگهانی نصف می‌شود و این باعث می‌شود که کمیابیِ بیت کوین افزایش یابد.\r\n\r\nهدف ماینینگ چیست؟\r\n\r\nهمانطور که گفته شده استخراج بیت کوین یعنی حل معادلات بسیار سختی در بلاک تا بلاک معتبر در شبکه بلا‌کچین ایجاد شود.این کار مستلزم زمان است که برای هر تراکنش یا حل مسئله باید صرف شود,نتیجه این کار منظم بودند شبکه و حفظ امنیت شبکه است.\r\n\r\nپس برای حمله به شبکه یا هک, افراد باید سخت افزار بسیار داشته و هزینه بسیار کنند و درواقع هک کردن برای انها خیلی گران تمام خواهد شد.\r\n\r\nهمانطور که اشاره شد ماینر‌ها باید تراکنش های شبکه را تایید کند و بدون این تایید انتقالی انجام نخواهد شد.البته چون این ماینر ها در نقاط مختلف دنیا قرار دارند و ناشناس اند شبکه را امن و غیرمتمرکز کرده اند که به معنی عدم کنترل شبکه توسط افراد یا دولت خاصی است.\r\n\r\nماینر کیست؟\r\n\r\nبه کسانی که عمل استخراج بیت کوین را انجام می‌دهند, ماینر گویند. در واقع ماینر‌ها کار هایی برای شبکه انجام می‌‌دهند و به ازای ان از شبکه درامد زایی می‌کنند.\r\n\r\nالبته برای اینکار سخت‌افزار هایی لازم است که ماینر‌ها باید در اختیار شبکه قرار دهند. ماینرها باید طی یک فرایند پیچیده، بر سر حل معادلات ریاضی با یکدیگر مسابقه بدهند و به محض اینکه یک ماینر به جواب برسد، بیت کوین تولیدشده و به عنوان پاداش به او تعلق می‌گیرد. ماینر علاوه بر استخراج بیت کوین جدید,حفظ امنیت شبکه و تایید تراکنش اعضای شبکه را برعهده دارد.", "time_to_read": 9, "cover": "blog/استخراج-بیت-کوین-2.jpg", "like_count": 0, "view_count": 0, "comment_count": 0, "date_updated": "2023-02-01T23:14:24.871Z", "date_created": "2023-02-01T23:14:24.872Z"}}, {"model": "blog.blog", "pk": 2, "fields": {"title": "ارز دیجیتال-بودن یا نبودن", "summary": "سرمایه گذاری در ارز دیجیتال، خوب است یا بد؟ با توجه به حجم بالا", "text": "سرمایه گذاری در ارز دیجیتال\r\n\r\nآیا سرمایه گذاری در ارز دیجیتال خوب است یا بد؟ ارزهای دیجیتال از ان جا که وابسته به هیچ دولت یا نهادی نیستند و مستقل از سیستم های مالی دولت ها عمل می‌کنند، توسط این مراجع نیز کنترل نمی‌شوند. به چه معنا؟\r\n\r\nبه این معنا که افراد برای فعالیت در این شبکه‌ها نیاز به مجوز ندارند و فعالیت خود را داوطلبانه اغاز می‌کنند. بدین جهت که با پذیرش شرایط و ریسک های این فضا وارد می‌شوند و فعالیت می‌کنند./\r\n\r\nسرمایه گذاری ارز دیجیتال و نگرانی دولت ها\r\n\r\nدولت ها به علت خروج نقدینگی از چرخه اقتصاد خود، نگران فضای سرمایه گذاری ارز دیجیتال هستند و چون نمی‌توانند مانع تبادلات این فضا باشند، به دنبال راهی برای کنترل این فضا اند.\r\n\r\nاما دولت‌ها می‌توانند با کنترل واسطه‌ها (صرافی‌ها) در ورود نقدینگی به این بازار مانع شوند، به این طریق که شما برای خرید ارز دیجیتال باید به صرافی پرداختی داشته باشید اما وقتی جای برای پرداخت نباشد، صرافی ارزی برای شما ارسال نخواهد کرد.\r\n\r\nعجله نکنید\r\n\r\nبرعکس خرید، فروش را نمی‌توان کنترل کرد، زیرا فرد با فروش ارز خود به واسطه از ان دریافتی خواهد داشت و مانعی برای این کار وجود ندارد.\r\n\r\nسخن پایانی\r\n\r\nاگر در زمینه سرمایه گذاری ارز دیجیتال، نیاز به کسب راهنمایی دارید، می توانید سوالات خود را در قسمت دیدگاه های همین صفحه درج نمایید", "time_to_read": 5, "cover": "blog/سرمایه-گذاری-در-ارز-دیجیتال-2-jpg-webp.webp", "like_count": 0, "view_count": 0, "comment_count": 0, "date_updated": "2023-02-01T23:16:02.467Z", "date_created": "2023-02-01T23:16:02.467Z"}}, {"model": "blog.blog", "pk": 3, "fields": {"title": "آموزش ذخیره کردن توکن های NFT", "summary": "اگر مالکیت آثار هنری فیزیکی به ارزش میلیون‌ها دلار، یک مونه یا", "text": "توکن‌های غیر قابل تعویض فقط آثار هنری نیستند. آنها می‌توانند هر چیزی را از یک تصویر هنری یا یک موزیک ویدئو/یا فایل صوتی گرفته تا اسناد هویت شخصی دیجیتال، عناوین دانشگاهی، مالکیت خودرو، مالکیت خانه و غیره نشان دهند.\r\n\r\n قبل از بلاک چین، دارایی‌های دیجیتال می‌توانستند تکثیر و توزیع شوند. بدون دانستن اینکه دارایی دیجیتال اصلی چه هستند یا کجا قرار دارد، بیشتر اقلام اساساً بی ارزش بودند.\r\n\r\nبا ارائه یک دفتر کل دیجیتال غیرقابل تغییر، بلاک چین به هنرمندان اجازه می‌دهد تا نسخه‌های اصلی را ایجاد و تأیید کنند تا بتوانند دارایی‌های خود را بدون واسطه در یک محیط غیرقابل اعتماد مدیریت کنند.\r\n\r\n این پیشرفت نشان‌دهنده گامی‌مهم در مالکیت دارایی‌های دیجیتال است و راه را برای یک بازار پررونق – نه فقط در هنرهای دیجیتال، بلکه همچنین در بحث املاک دیجیتال، هویت و بازی‌ها – در دهه آینده هموار می‌کند. از آنجایی که مالکیت دیجیتال به دارایی‌های ارزشمند گسترش می‌یابد، ذخیره‌سازی صحیح NFT‌ها برای جلوگیری از سرقت و سایر کلاهبرداری‌ها در دنیای دیجیتال تبدیل به یک موضوع حیاتی می‌شود.\r\n\r\nبر اساس گزارش رویترز، در بهار 2021، بازار NFT از 13.7 میلیون دلار در زمان مشابه سال قبل به 2.5 میلیارد دلار افزایش یافت. اخیراً حجم فروش بالا باقی مانده است و پس از افزایش محبوبیت NFT، به نزدیک به 5 میلیارد دلار رسیده است.\r\n\r\n در ماه مارس، کریستی با فروش یک NFT توسط هنرمند دیجیتال بیپل به قیمت 69 میلیون دلار (50 میلیون پوند) رکورد جدیدی را برای هنر دیجیتال به ثبت رساند. نمونه دیگری از فروش قابل توجه NFT یک “CryptoPunk” بود 11.8 میلیون دلار برای ساتبی به ارمغان آورد. حجم فروش در بازار محبوب NFT OpenSea در اکتبر به رکورد 1 میلیارد دلار رسید.\r\nصرافی کوین کده | صرافی ارز دیجیتال - خرید و فروش ارزهای دیجیتال\r\n\r\nنوازنده گریمز در چند ماه گذشته برخی از هنرهای دیجیتال خود را به بیش از 6 میلیون دلار فروخت و جک دورسی، بنیانگذار توییتر، اولین توییت خود را به عنوان NFT فروخت و قیمت پیشنهادی آن به 2.5 میلیون دلار رسید.\r\n\r\nبا توجه به محبوبیت و تأثیر مالی که متاورس برای NFTها خواهد داشت، پتانسیل این نوع دارایی بسیار زیاد است.\r\n\r\nدر چند ماه گذشته، توکن‌های غیرقابل تعویض به دارایی‌های کمیاب با ارزش تبدیل شده‌اند و سرمایه‌گذارانی را جذب می‌کنند که به اهدافی برای هکرهایی تبدیل شده‌اند که به دنبال سرقت آثار هنری دیجیتال یا اطلاعات کارت اعتباری برای خرید بیشتر هستند.\r\n\r\nچند ماه پیش، هکرها دارایی‌هایی به ارزش هزاران دلار را از حساب‌های موجود در بازار NFT Nifty Gateway سرقت کردند. این پلتفرم علت هک را ناشی از عدم احراز هویت دو مرحله ای مصرف کنندگان دانست که به هکرها امکان شناسایی اطلاعات ورود کاربران و سرقت دارایی‌های آنها را آسان می‌کرد.\r\n\r\nامنیت شرکت به خطر نیفتاد. با این حال، برخی نگرانی‌های جدی به‌طور قانونی در مورد اینکه تا چه حدی نگهداری NFT یا هر مورد دیجیتال دیگری نزد این راه‌حل‌های شخص ثالث ایمن است، مطرح شد.\r\n\r\nعبارت معروف «اگر کلیدهای خود را در اختیار نداشته باشید، رمزارزها متعلق به شما نیستند» می‌تواند و باید برای NFT نیز اعمال شود. علاقه مندان به ارز دیجیتال با این عبارت آشنا هستند، به این معنی که اگر از کلیدهای خصوصی خود را نگهداری نکنید، مانند ذخیره سازی در صرافی‌ها، مالک ارز دیجیتال خود نیستید.\r\n\r\nدر حالی که کیف‌پول‌های ارزهای دیجیتال تاکنون فقط برای دارایی‌های ارز دیجیتال کار کرده‌اند، اما با تکامل NFT، انواع دیگری از کیف‌پول‌های ارز دیجیتال صراحتاً برای ذخیره داده‌های NFT ایجاد شده‌اند.\r\n\r\n\r\nوقتی صحبت از ذخیره و نگهداری NFT ها می‌شود، امنیت آن‌ها به اندازه‌ی بحث امنیت ارزهای دیجیتال حیاتی است. اگر آنها را در یک صرافی (یا پلتفرم‌های بازار NFT) رها کنید، در معرض هک‌های احتمالی، فعالیت‌های متقلبانه توسط صرافی یا نقاط شکست قرار می‌گیرید.\r\n\r\nذخیره سازی مبتنی بر بلاک چین غیرمتمرکز است و به دلیل امنیت بیشتر و فراهم کردن امکان حاکمیت کامل بر دارایی خود، می‌تواند جایگزین ذخیره سازی متمرکز دارایی‌های دیجیتال شود. علاوه بر این، راه حل‌های متعددی را برای آرامش بیشتر ارائه می‌دهد.\r\n\r\nشایان ذکر است که شما NFT یا ارز دیجیتال را در کیف پول خود ذخیره نمی‌کنید. در عوض، کیف پول دسترسی به سرمایه‌گذاری‌های ذخیره شده در بلاک چین را از طریق یک کلید خصوصی تضمین می‌کند.\r\n\r\nبا کلید خصوصی، شما به طور موثر صاحب یک آدرس ارز دیجیتال و هر چیزی در آن آدرس هستید. با این حال، به دلیل این که دارایی دیجیتال شما آنلاین است، در برابر حملات هک آسیب پذیر باقی می‌مانید.\r\n\r\nاز این رو، ذخیره و نگهداری NFT‌ها در راه حل‌های آفلاین برای ذخیره سازی سرد ضروری است. از آنجایی که ذخیره سازی در پلتفرمی‌صورت می‌پذیرد که به اینترنت متصل نیست، بنابراین کمتر در معرض دسترسی غیرمجاز، حملات سایبری و سایر آسیب پذیری‌های معمول داده‌های متصل به اینترنت است.\r\n\r\nبهترین راه برای ذخیره NFT‌ها به صورت آفلاین، خرید یک کیف پول سخت افزاری و انتقال دارایی‌های دیجیتال به آنجا است. با آفلاین ماندن، کیف پول از دسترس هکرها و کی لاگرها دور می‌ماند و آن‌ها نمی‌توانند به آن دسترسی پیدا کنند. همچنین، هر کیف پول سخت افزاری دارای شناسه و رمز عبور برای امنیت بیشتر است.", "time_to_read": 10, "cover": "blog/article_what-is-an-nft.webp", "like_count": 0, "view_count": 0, "comment_count": 0, "date_updated": "2023-02-01T23:18:27.406Z", "date_created": "2023-02-01T23:18:27.406Z"}}]
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-02-01T23:14:24.872Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "1",
+      "object_repr": "Blog object (1)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-02-01T23:16:02.467Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "2",
+      "object_repr": "Blog object (2)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2023-02-01T23:18:27.406Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "3",
+      "object_repr": "Blog object (3)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add faq",
+      "content_type": 6,
+      "codename": "add_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change faq",
+      "content_type": 6,
+      "codename": "change_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete faq",
+      "content_type": 6,
+      "codename": "delete_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view faq",
+      "content_type": 6,
+      "codename": "view_faq"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 7,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 7,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 7,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 7,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add address",
+      "content_type": 8,
+      "codename": "add_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change address",
+      "content_type": 8,
+      "codename": "change_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete address",
+      "content_type": 8,
+      "codename": "delete_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view address",
+      "content_type": 8,
+      "codename": "view_address"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add blog",
+      "content_type": 9,
+      "codename": "add_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change blog",
+      "content_type": 9,
+      "codename": "change_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete blog",
+      "content_type": 9,
+      "codename": "delete_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view blog",
+      "content_type": 9,
+      "codename": "view_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add blog view",
+      "content_type": 10,
+      "codename": "add_blogview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change blog view",
+      "content_type": 10,
+      "codename": "change_blogview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete blog view",
+      "content_type": 10,
+      "codename": "delete_blogview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view blog view",
+      "content_type": 10,
+      "codename": "view_blogview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add blog like",
+      "content_type": 11,
+      "codename": "add_bloglike"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change blog like",
+      "content_type": 11,
+      "codename": "change_bloglike"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete blog like",
+      "content_type": 11,
+      "codename": "delete_bloglike"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view blog like",
+      "content_type": 11,
+      "codename": "view_bloglike"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add blog comment",
+      "content_type": 12,
+      "codename": "add_blogcomment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change blog comment",
+      "content_type": 12,
+      "codename": "change_blogcomment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete blog comment",
+      "content_type": 12,
+      "codename": "delete_blogcomment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view blog comment",
+      "content_type": 12,
+      "codename": "view_blogcomment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add card",
+      "content_type": 13,
+      "codename": "add_card"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change card",
+      "content_type": 13,
+      "codename": "change_card"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete card",
+      "content_type": 13,
+      "codename": "delete_card"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view card",
+      "content_type": 13,
+      "codename": "view_card"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add purchased card",
+      "content_type": 14,
+      "codename": "add_purchasedcard"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change purchased card",
+      "content_type": 14,
+      "codename": "change_purchasedcard"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete purchased card",
+      "content_type": 14,
+      "codename": "delete_purchasedcard"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view purchased card",
+      "content_type": 14,
+      "codename": "view_purchasedcard"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add order",
+      "content_type": 15,
+      "codename": "add_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change order",
+      "content_type": 15,
+      "codename": "change_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete order",
+      "content_type": 15,
+      "codename": "delete_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view order",
+      "content_type": 15,
+      "codename": "view_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add support",
+      "content_type": 16,
+      "codename": "add_support"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change support",
+      "content_type": 16,
+      "codename": "change_support"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete support",
+      "content_type": 16,
+      "codename": "delete_support"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view support",
+      "content_type": 16,
+      "codename": "view_support"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add support messages",
+      "content_type": 17,
+      "codename": "add_supportmessages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change support messages",
+      "content_type": 17,
+      "codename": "change_supportmessages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete support messages",
+      "content_type": 17,
+      "codename": "delete_supportmessages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view support messages",
+      "content_type": 17,
+      "codename": "view_supportmessages"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+      "name": "Can add wallet",
+      "content_type": 18,
+      "codename": "add_wallet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+      "name": "Can change wallet",
+      "content_type": 18,
+      "codename": "change_wallet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+      "name": "Can delete wallet",
+      "content_type": 18,
+      "codename": "delete_wallet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+      "name": "Can view wallet",
+      "content_type": 18,
+      "codename": "view_wallet"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "faq",
+      "model": "faq"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "user",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "user",
+      "model": "address"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "blog",
+      "model": "blog"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "blog",
+      "model": "blogview"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "blog",
+      "model": "bloglike"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "blog",
+      "model": "blogcomment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "card",
+      "model": "card"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "card",
+      "model": "purchasedcard"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "card",
+      "model": "order"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "support",
+      "model": "support"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "support",
+      "model": "supportmessages"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "payment",
+      "model": "wallet"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "d2sqt0cpwzlw7mmysbw1pwm5kjcp9o6l",
+    "fields": {
+      "session_data": ".eJxVjEsOwjAMBe-SNYpip3Ebluw5Q2XHKS2gROpnhbg7VOoCtm9m3sv0vK1jvy157ic1ZwPm9LsJp0cuO9A7l1u1qZZ1nsTuij3oYq9V8_NyuH8HIy_jt84-NTAEim7okCJ6QvAtICbXhFZ8ZOyIxCVQYQiikYmcaGjRpwzOvD-vJTbK:1pNMDV:7czqe0soAEQDyj1nrh4PcucKOTzePL8iwVzABt_CNT4",
+      "expire_date": "2023-02-15T23:08:37.171Z"
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "phone_number": "9037853055",
+      "password": "pbkdf2_sha256$390000$5kA1y6ZKWajzhO2vBgEZkW$S0Ba2hMJxfJZQhU1csaCBJ2m+evRur36Kvj2Zkfafhg=",
+      "first_name": "",
+      "last_name": "",
+      "is_banned": false,
+      "is_male": null,
+      "is_admin": true,
+      "birth_date": null,
+      "last_login": "2023-02-01T23:08:37.166Z",
+      "date_joined": "2023-02-01T23:08:28.364Z"
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 1,
+    "fields": {
+      "title": "استخراج بیت کوین",
+      "summary": "استخراج بیت کوین با معنی ماینیگ در هم تنیده شده، آیا ماینینگ ار",
+      "text": "پیدایش بیت کوین, با مفهومی با عنوان ماینینگ یا همان استخراج بیت کوین گره خورده است. اما ماینینگ چیست؟ چه کسانی ماین می‌کنند؟ هدف ماینینگ چیست؟ چه طور ماینینگ اتفاق می‌افتد؟ و سوالاتی از این دست نظر کاربران را به خود جلب کرده.\r\n\r\n به زبانی ساده در شبکه بلاک چین, معادلات پیچیده‌ای ریاضی باید حل بشود تا در نتیجه آن بیت کوین تولید شود. اما حل این معادلات کار بسیار سختی است که شبکه بر همین اصل بنا شده و اصطلاحا به ان اثبات کار یا Proof Of Work گویند.\r\n\r\nبر اساس پروتکل یا همان قوانین بیت کوین، فقط تعداد ۲۱ میلیون واحد از آن وجود خواهد داشت, درنتیجه با تولید بیشتر, سختی استخراج بیت کوین بیشتر می‌شود. همچنین، هر چهار سال یکبار طی رویدادی به نام «هاوینگ»، میزان بیت کوین‌های تولیدشده به شکل ناگهانی نصف می‌شود و این باعث می‌شود که کمیابیِ بیت کوین افزایش یابد.\r\n\r\nهدف ماینینگ چیست؟\r\n\r\nهمانطور که گفته شده استخراج بیت کوین یعنی حل معادلات بسیار سختی در بلاک تا بلاک معتبر در شبکه بلا‌کچین ایجاد شود.این کار مستلزم زمان است که برای هر تراکنش یا حل مسئله باید صرف شود,نتیجه این کار منظم بودند شبکه و حفظ امنیت شبکه است.\r\n\r\nپس برای حمله به شبکه یا هک, افراد باید سخت افزار بسیار داشته و هزینه بسیار کنند و درواقع هک کردن برای انها خیلی گران تمام خواهد شد.\r\n\r\nهمانطور که اشاره شد ماینر‌ها باید تراکنش های شبکه را تایید کند و بدون این تایید انتقالی انجام نخواهد شد.البته چون این ماینر ها در نقاط مختلف دنیا قرار دارند و ناشناس اند شبکه را امن و غیرمتمرکز کرده اند که به معنی عدم کنترل شبکه توسط افراد یا دولت خاصی است.\r\n\r\nماینر کیست؟\r\n\r\nبه کسانی که عمل استخراج بیت کوین را انجام می‌دهند, ماینر گویند. در واقع ماینر‌ها کار هایی برای شبکه انجام می‌‌دهند و به ازای ان از شبکه درامد زایی می‌کنند.\r\n\r\nالبته برای اینکار سخت‌افزار هایی لازم است که ماینر‌ها باید در اختیار شبکه قرار دهند. ماینرها باید طی یک فرایند پیچیده، بر سر حل معادلات ریاضی با یکدیگر مسابقه بدهند و به محض اینکه یک ماینر به جواب برسد، بیت کوین تولیدشده و به عنوان پاداش به او تعلق می‌گیرد. ماینر علاوه بر استخراج بیت کوین جدید,حفظ امنیت شبکه و تایید تراکنش اعضای شبکه را برعهده دارد.",
+      "time_to_read": 9,
+      "cover": "blog/استخراج-بیت-کوین-2.jpg",
+      "like_count": 0,
+      "view_count": 0,
+      "comment_count": 0,
+      "date_updated": "2023-02-01T23:14:24.871Z",
+      "date_created": "2023-02-01T23:14:24.872Z"
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 2,
+    "fields": {
+      "title": "ارز دیجیتال-بودن یا نبودن",
+      "summary": "سرمایه گذاری در ارز دیجیتال، خوب است یا بد؟ با توجه به حجم بالا",
+      "text": "سرمایه گذاری در ارز دیجیتال\r\n\r\nآیا سرمایه گذاری در ارز دیجیتال خوب است یا بد؟ ارزهای دیجیتال از ان جا که وابسته به هیچ دولت یا نهادی نیستند و مستقل از سیستم های مالی دولت ها عمل می‌کنند، توسط این مراجع نیز کنترل نمی‌شوند. به چه معنا؟\r\n\r\nبه این معنا که افراد برای فعالیت در این شبکه‌ها نیاز به مجوز ندارند و فعالیت خود را داوطلبانه اغاز می‌کنند. بدین جهت که با پذیرش شرایط و ریسک های این فضا وارد می‌شوند و فعالیت می‌کنند./\r\n\r\nسرمایه گذاری ارز دیجیتال و نگرانی دولت ها\r\n\r\nدولت ها به علت خروج نقدینگی از چرخه اقتصاد خود، نگران فضای سرمایه گذاری ارز دیجیتال هستند و چون نمی‌توانند مانع تبادلات این فضا باشند، به دنبال راهی برای کنترل این فضا اند.\r\n\r\nاما دولت‌ها می‌توانند با کنترل واسطه‌ها (صرافی‌ها) در ورود نقدینگی به این بازار مانع شوند، به این طریق که شما برای خرید ارز دیجیتال باید به صرافی پرداختی داشته باشید اما وقتی جای برای پرداخت نباشد، صرافی ارزی برای شما ارسال نخواهد کرد.\r\n\r\nعجله نکنید\r\n\r\nبرعکس خرید، فروش را نمی‌توان کنترل کرد، زیرا فرد با فروش ارز خود به واسطه از ان دریافتی خواهد داشت و مانعی برای این کار وجود ندارد.\r\n\r\nسخن پایانی\r\n\r\nاگر در زمینه سرمایه گذاری ارز دیجیتال، نیاز به کسب راهنمایی دارید، می توانید سوالات خود را در قسمت دیدگاه های همین صفحه درج نمایید",
+      "time_to_read": 5,
+      "cover": "blog/سرمایه-گذاری-در-ارز-دیجیتال-2-jpg-webp.webp",
+      "like_count": 0,
+      "view_count": 0,
+      "comment_count": 0,
+      "date_updated": "2023-02-01T23:16:02.467Z",
+      "date_created": "2023-02-01T23:16:02.467Z"
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "title": "آموزش ذخیره کردن توکن های NFT",
+      "summary": "اگر مالکیت آثار هنری فیزیکی به ارزش میلیون‌ها دلار، یک مونه یا",
+      "text": "توکن‌های غیر قابل تعویض فقط آثار هنری نیستند. آنها می‌توانند هر چیزی را از یک تصویر هنری یا یک موزیک ویدئو/یا فایل صوتی گرفته تا اسناد هویت شخصی دیجیتال، عناوین دانشگاهی، مالکیت خودرو، مالکیت خانه و غیره نشان دهند.\r\n\r\n قبل از بلاک چین، دارایی‌های دیجیتال می‌توانستند تکثیر و توزیع شوند. بدون دانستن اینکه دارایی دیجیتال اصلی چه هستند یا کجا قرار دارد، بیشتر اقلام اساساً بی ارزش بودند.\r\n\r\nبا ارائه یک دفتر کل دیجیتال غیرقابل تغییر، بلاک چین به هنرمندان اجازه می‌دهد تا نسخه‌های اصلی را ایجاد و تأیید کنند تا بتوانند دارایی‌های خود را بدون واسطه در یک محیط غیرقابل اعتماد مدیریت کنند.\r\n\r\n این پیشرفت نشان‌دهنده گامی‌مهم در مالکیت دارایی‌های دیجیتال است و راه را برای یک بازار پررونق – نه فقط در هنرهای دیجیتال، بلکه همچنین در بحث املاک دیجیتال، هویت و بازی‌ها – در دهه آینده هموار می‌کند. از آنجایی که مالکیت دیجیتال به دارایی‌های ارزشمند گسترش می‌یابد، ذخیره‌سازی صحیح NFT‌ها برای جلوگیری از سرقت و سایر کلاهبرداری‌ها در دنیای دیجیتال تبدیل به یک موضوع حیاتی می‌شود.\r\n\r\nبر اساس گزارش رویترز، در بهار 2021، بازار NFT از 13.7 میلیون دلار در زمان مشابه سال قبل به 2.5 میلیارد دلار افزایش یافت. اخیراً حجم فروش بالا باقی مانده است و پس از افزایش محبوبیت NFT، به نزدیک به 5 میلیارد دلار رسیده است.\r\n\r\n در ماه مارس، کریستی با فروش یک NFT توسط هنرمند دیجیتال بیپل به قیمت 69 میلیون دلار (50 میلیون پوند) رکورد جدیدی را برای هنر دیجیتال به ثبت رساند. نمونه دیگری از فروش قابل توجه NFT یک “CryptoPunk” بود 11.8 میلیون دلار برای ساتبی به ارمغان آورد. حجم فروش در بازار محبوب NFT OpenSea در اکتبر به رکورد 1 میلیارد دلار رسید.\r\nصرافی کوین کده | صرافی ارز دیجیتال - خرید و فروش ارزهای دیجیتال\r\n\r\nنوازنده گریمز در چند ماه گذشته برخی از هنرهای دیجیتال خود را به بیش از 6 میلیون دلار فروخت و جک دورسی، بنیانگذار توییتر، اولین توییت خود را به عنوان NFT فروخت و قیمت پیشنهادی آن به 2.5 میلیون دلار رسید.\r\n\r\nبا توجه به محبوبیت و تأثیر مالی که متاورس برای NFTها خواهد داشت، پتانسیل این نوع دارایی بسیار زیاد است.\r\n\r\nدر چند ماه گذشته، توکن‌های غیرقابل تعویض به دارایی‌های کمیاب با ارزش تبدیل شده‌اند و سرمایه‌گذارانی را جذب می‌کنند که به اهدافی برای هکرهایی تبدیل شده‌اند که به دنبال سرقت آثار هنری دیجیتال یا اطلاعات کارت اعتباری برای خرید بیشتر هستند.\r\n\r\nچند ماه پیش، هکرها دارایی‌هایی به ارزش هزاران دلار را از حساب‌های موجود در بازار NFT Nifty Gateway سرقت کردند. این پلتفرم علت هک را ناشی از عدم احراز هویت دو مرحله ای مصرف کنندگان دانست که به هکرها امکان شناسایی اطلاعات ورود کاربران و سرقت دارایی‌های آنها را آسان می‌کرد.\r\n\r\nامنیت شرکت به خطر نیفتاد. با این حال، برخی نگرانی‌های جدی به‌طور قانونی در مورد اینکه تا چه حدی نگهداری NFT یا هر مورد دیجیتال دیگری نزد این راه‌حل‌های شخص ثالث ایمن است، مطرح شد.\r\n\r\nعبارت معروف «اگر کلیدهای خود را در اختیار نداشته باشید، رمزارزها متعلق به شما نیستند» می‌تواند و باید برای NFT نیز اعمال شود. علاقه مندان به ارز دیجیتال با این عبارت آشنا هستند، به این معنی که اگر از کلیدهای خصوصی خود را نگهداری نکنید، مانند ذخیره سازی در صرافی‌ها، مالک ارز دیجیتال خود نیستید.\r\n\r\nدر حالی که کیف‌پول‌های ارزهای دیجیتال تاکنون فقط برای دارایی‌های ارز دیجیتال کار کرده‌اند، اما با تکامل NFT، انواع دیگری از کیف‌پول‌های ارز دیجیتال صراحتاً برای ذخیره داده‌های NFT ایجاد شده‌اند.\r\n\r\n\r\nوقتی صحبت از ذخیره و نگهداری NFT ها می‌شود، امنیت آن‌ها به اندازه‌ی بحث امنیت ارزهای دیجیتال حیاتی است. اگر آنها را در یک صرافی (یا پلتفرم‌های بازار NFT) رها کنید، در معرض هک‌های احتمالی، فعالیت‌های متقلبانه توسط صرافی یا نقاط شکست قرار می‌گیرید.\r\n\r\nذخیره سازی مبتنی بر بلاک چین غیرمتمرکز است و به دلیل امنیت بیشتر و فراهم کردن امکان حاکمیت کامل بر دارایی خود، می‌تواند جایگزین ذخیره سازی متمرکز دارایی‌های دیجیتال شود. علاوه بر این، راه حل‌های متعددی را برای آرامش بیشتر ارائه می‌دهد.\r\n\r\nشایان ذکر است که شما NFT یا ارز دیجیتال را در کیف پول خود ذخیره نمی‌کنید. در عوض، کیف پول دسترسی به سرمایه‌گذاری‌های ذخیره شده در بلاک چین را از طریق یک کلید خصوصی تضمین می‌کند.\r\n\r\nبا کلید خصوصی، شما به طور موثر صاحب یک آدرس ارز دیجیتال و هر چیزی در آن آدرس هستید. با این حال، به دلیل این که دارایی دیجیتال شما آنلاین است، در برابر حملات هک آسیب پذیر باقی می‌مانید.\r\n\r\nاز این رو، ذخیره و نگهداری NFT‌ها در راه حل‌های آفلاین برای ذخیره سازی سرد ضروری است. از آنجایی که ذخیره سازی در پلتفرمی‌صورت می‌پذیرد که به اینترنت متصل نیست، بنابراین کمتر در معرض دسترسی غیرمجاز، حملات سایبری و سایر آسیب پذیری‌های معمول داده‌های متصل به اینترنت است.\r\n\r\nبهترین راه برای ذخیره NFT‌ها به صورت آفلاین، خرید یک کیف پول سخت افزاری و انتقال دارایی‌های دیجیتال به آنجا است. با آفلاین ماندن، کیف پول از دسترس هکرها و کی لاگرها دور می‌ماند و آن‌ها نمی‌توانند به آن دسترسی پیدا کنند. همچنین، هر کیف پول سخت افزاری دارای شناسه و رمز عبور برای امنیت بیشتر است.",
+      "time_to_read": 10,
+      "cover": "blog/article_what-is-an-nft.webp",
+      "like_count": 0,
+      "view_count": 0,
+      "comment_count": 0,
+      "date_updated": "2023-02-01T23:18:27.406Z",
+      "date_created": "2023-02-01T23:18:27.406Z"
+    }
+  }
+]
