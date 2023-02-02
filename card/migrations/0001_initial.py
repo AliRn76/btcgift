@@ -20,7 +20,8 @@ class Migration(migrations.Migration):
             name='Card',
             fields=[
                 ('id', models.BigAutoField(db_column='ID', primary_key=True, serialize=False)),
-                ('image', models.ImageField(db_column='Image', upload_to=card.models.Card.card_images_path)),
+                ('image_front', models.ImageField(db_column='ImageFront', upload_to=card.models.Card.card_images_path)),
+                ('image_back', models.ImageField(db_column='ImageBack', upload_to=card.models.Card.card_images_path)),
                 ('is_active', models.BooleanField(db_column='IsActive', default=True)),
                 ('min_amount', models.PositiveIntegerField(db_column='MinAmount')),
                 ('max_amount', models.PositiveIntegerField(db_column='MaxAmount')),

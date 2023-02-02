@@ -1,11 +1,10 @@
-from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
 from config.settings import OTP_EXP
 from config.utils import validate_phone_number
 from user.authentication import JWTAuthentication
-from user.messages import OPTSentSuccessfullyMessage, ProfileUpdatedMessage
+from config.messages import OPTSentSuccessfullyMessage
 from user.models import User, Address
 
 

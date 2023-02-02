@@ -4,7 +4,7 @@ from blog.models import Blog, BlogComment, BlogLike, BlogView
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'summary', 'date_updated', 'date_created')
-    search_fields = ('id', 'title', 'summary', 'description')
+    search_fields = ('id', 'title', 'summary', 'text')
     readonly_fields = ('like_count', 'view_count', 'comment_count')
 
     ordering = ('-id',)

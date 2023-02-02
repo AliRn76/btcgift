@@ -901,5 +901,71 @@
       "date_updated": "2023-02-01T23:18:27.406Z",
       "date_created": "2023-02-01T23:18:27.406Z"
     }
+  },
+  {
+    "model": "faq.faq",
+    "pk": 1,
+    "fields": {
+      "question": "در صورت واریز کوین به آدرس اشتباه آیا امکان بازگشت تراکنش وجود دارد؟",
+      "answer": "تراکنش‌های ارز دیجیتال برخلاف سیستم‌های سنتی برگشت‌ناپذیر هستند. ارسال یک تراکنش به آدرس اشتباه به این معنا است که آن ارز دیجیتال برای همیشه از دست رفته است. حتماً قبل از ارسال تراکنش، آدرس مقصد را بررسی کنید تا با آدرس کیف پول مورد نظرتان کاملا یکسان باشد؛ زیرا بعضی از بدافزارها آدرس‌ هکر را هنگام کپی‌ کردن جایگزین آدرس مدنظر شما می‌کنند.",
+      "is_active": true,
+      "priority": 1,
+      "date_updated": "2023-02-02T20:01:53.368Z",
+      "date_created": "2023-02-02T20:01:53.368Z"
+    }
+  },
+  {
+    "model": "faq.faq",
+    "pk": 2,
+    "fields": {
+      "question": "نحوه محاسبه کارمزدها چگونه است؟",
+      "answer": "کارمزد معامله در پایه‌بازار ریال به صورت درصدی با توجه به سطح کاربری شما (بر اساس حجم معاملات سه ماه اخیر در پایه بازار ریال) کسر می‌شود. کارمزد معاملات جفت ارز (به طور مثال بیت کوین-تتر) به صورت ثابت ۰.۲% در نظر گرفته می شود و ارتباطی با سطح کاربری شما ندارد.",
+      "is_active": true,
+      "priority": 2,
+      "date_updated": "2023-02-02T20:05:34.949Z",
+      "date_created": "2023-02-02T20:05:34.949Z"
+    }
+  },
+  {
+    "model": "support.support",
+    "pk": 1,
+    "fields": {
+      "subject": "I have problem with buying card",
+      "date_created": "2023-02-02T20:44:30.250Z",
+      "user_id": 1
+    }
+  },
+  {
+    "model": "support.supportmessages",
+    "pk": 1,
+    "fields": {
+      "is_answer": false,
+      "message": "This is my message, please fix this issue as soon as you can",
+      "file": "",
+      "date_created": "2023-02-02T21:28:11.194Z",
+      "support_id": 1
+    }
+  },
+  {
+    "model": "support.supportmessages",
+    "pk": 2,
+    "fields": {
+      "is_answer": true,
+      "message": "Ok we are working on it",
+      "file": "support/Support object (1)/b7_DKwzhjL.png",
+      "date_created": "2023-02-02T21:29:00.605Z",
+      "support_id": 1
+    }
+  },
+  {
+    "model": "support.supportmessages",
+    "pk": 3,
+    "fields": {
+      "is_answer": false,
+      "message": "I still have this issue",
+      "file": "",
+      "date_created": "2023-02-02T21:30:22.745Z",
+      "support_id": 1
+    }
   }
 ]

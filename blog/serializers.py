@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from blog.models import Blog, BlogComment, BlogLike
 from config.utils import client_ip
-from user.messages import SubmittedSuccessfullyMessage
+from config.messages import SubmittedSuccessfullyMessage
 
 
 class BlogSerializer(serializers.ModelSerializer):

@@ -20,7 +20,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(db_column='ID', primary_key=True, serialize=False)),
                 ('subject', models.CharField(db_column='Subject', max_length=63)),
-                ('issue', models.CharField(db_column='Issue', max_length=1024)),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_column='DateCreated')),
                 ('user_id', models.ForeignKey(db_column='UserID', on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
@@ -32,11 +31,10 @@ class Migration(migrations.Migration):
             name='SupportMessages',
             fields=[
                 ('id', models.BigAutoField(db_column='ID', primary_key=True, serialize=False)),
-                ('is_answer', models.BooleanField(db_column='IsAnswer')),
-                ('message', models.CharField(blank=True, db_column='Message', max_length=1024, null=True)),
+                ('is_answer', models.BooleanField(db_column='IsAnswer', default=True)),
+                ('message', models.CharField(db_column='Message', max_length=1023)),
                 ('file', models.FileField(blank=True, db_column='File', null=True, upload_to=support.models.SupportMessages.support_files_path)),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_column='DateCreated')),
-                ('admin_id', models.ForeignKey(db_column='AdminID', on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
                 ('support_id', models.ForeignKey(db_column='SupportID', on_delete=django.db.models.deletion.CASCADE, to='support.support')),
             ],
             options={

@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('question', models.CharField(db_column='Question', max_length=255)),
                 ('answer', models.TextField(db_column='Answer')),
                 ('is_active', models.BooleanField(db_column='IsActive', default=True)),
-                ('order', models.PositiveIntegerField(db_column='Order')),
+                ('priority', models.PositiveIntegerField(db_column='Priority')),
                 ('date_updated', models.DateTimeField(auto_now=True, db_column='DateUpdated')),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_column='DateCreated')),
             ],

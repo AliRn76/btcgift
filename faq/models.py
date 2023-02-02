@@ -3,7 +3,7 @@ from django.db import models
 
 class FAQManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(is_active=True).order_by('order')
+        return super().get_queryset().filter(is_active=True).order_by('priority')
 
 
 class FAQ(models.Model):
@@ -11,7 +11,7 @@ class FAQ(models.Model):
     question = models.CharField(db_column='Question', max_length=255)
     answer = models.TextField(db_column='Answer')
     is_active = models.BooleanField(db_column='IsActive', default=True)
-    order = models.PositiveIntegerField(db_column='Order')  # Order in list
+    priority = models.PositiveIntegerField(db_column='Priority')  # order in list
     date_updated = models.DateTimeField(db_column='DateUpdated', auto_now=True)
     date_created = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
 

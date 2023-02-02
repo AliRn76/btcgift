@@ -1,8 +1,12 @@
 from django.contrib import admin
-from django.apps import apps
+from card.models import Card, PurchasedCard, Order
 
 
-app = apps.get_app_config('card')
+class CardAdmin(admin.ModelAdmin):
+    list_display = ('id', 'min_amount', 'max_amount', 'is_active', 'image_front')
 
-for model_name, model in app.models.items():
-    admin.site.register(model)
+
+admin.site.register(Card, CardAdmin)
+admin.site.register(PurchasedCard)
+admin.site.register(Order)
+

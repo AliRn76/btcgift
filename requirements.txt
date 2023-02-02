@@ -9,5 +9,4 @@ python-jose
 base58
 kavenegar==1.1.2
 django-cors-headers==3.13.0
-
-django-admin-soft-dashboard==1.0.9
+django-simpleui==2022.12.18

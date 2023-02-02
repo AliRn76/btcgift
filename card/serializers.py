@@ -10,18 +10,25 @@ from config.wallet import btc_to_toman
 class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
-        fields = ['image', 'min_amount', 'max_amount']
+        fields = ['image_front', 'image_back', 'min_amount', 'max_amount']
 
 
 class MyCardsSerializer(serializers.ModelSerializer):
-    card_image = serializers.SerializerMethodField()
+    image_front = serializers.SerializerMethodField()
+    image_back = serializers.SerializerMethodField()
 
     class Meta:
         model = PurchasedCard
-        fields = ['id', 'btc_amount', 'message', 'card_image']
+        fields = ['id', 'btc_amount', 'message', 'image_front', 'image_back']
 
-    def get_card_image(self, instance):
-        return self.context['request'].build_absolute_uri(instance.card_id.image.url)
+    def absolute_uri(self, url):
+        return self.context['request'].build_absolute_uri(url)
+
+    def get_image_front(self, instance):
+        return self.absolute_uri(instance.card_id.image_front.url)
+
+    def get_image_back(self, instance):
+        return self.absolute_uri(instance.card_id.image_back.url)
 
 
 class PurchasedCardSerializer(serializers.ModelSerializer):

@@ -11,16 +11,14 @@ class Card(models.Model):
         return f'card/{file_name}'
 
     id = models.BigAutoField(db_column='ID', primary_key=True)
-    image = models.ImageField(db_column='Image', upload_to=card_images_path)
+    image_front = models.ImageField(db_column='ImageFront', upload_to=card_images_path)
+    image_back = models.ImageField(db_column='ImageBack', upload_to=card_images_path)
     is_active = models.BooleanField(db_column='IsActive', default=True)
     min_amount = models.PositiveIntegerField(db_column='MinAmount')
     max_amount = models.PositiveIntegerField(db_column='MaxAmount')
 
     class Meta:
         db_table = 'Card'
-
-    def get_image(self):
-        return self.image.url
 
 
 class PurchasedCard(models.Model):

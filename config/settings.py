@@ -7,14 +7,16 @@ from datetime import timedelta
 from pathlib import Path
 from django.core.management import utils
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 QR_DIR = BASE_DIR / 'qr_codes'
+
 SECRET_KEY = utils.get_random_secret_key()
+# SECRET_KEY = 'local'
 
 KAVENEGAR = '...'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -25,11 +27,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000'
 ]
 
-
-# Application definition
-
 INSTALLED_APPS = [
-    'admin_soft.apps.AdminSoftDashboardConfig',
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,7 +122,7 @@ AUTH_USER_MODEL = 'user.User'
 
 OTP_LEN = 4
 
-JWT_EXP = timedelta(days=99).total_seconds()
+JWT_EXP = timedelta(days=30).total_seconds()
 
 OTP_EXP = int(timedelta(minutes=1).total_seconds())
 
@@ -143,5 +142,3 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
