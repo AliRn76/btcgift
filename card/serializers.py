@@ -5,7 +5,7 @@ from rest_framework.exceptions import ValidationError
 from config.utils import validate_phone_number
 from card.models import Order, PurchasedCard, Card
 from config.wallet import btc_to_toman
-from payment.jibimo import request_transaction_url
+from payment.jibimo import Jibimo
 from payment.models import Transaction
 
 
@@ -75,7 +75,7 @@ class OrderSerializer(serializers.ModelSerializer):
         order = super().create(validated_data)
         transaction = Transaction.objects.create(amount=order.card_id.cost, user_id=user, order_id=order)
         # TODO: Check this payment part
-        self.context['gateway_url'] = request_transaction_url(transaction=transaction)
+        self.context['gateway_url'] = Jibimo.request_transaction_url(transaction=transaction)
         return order
 
     def to_representation(self, instance):
