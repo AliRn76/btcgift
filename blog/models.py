@@ -17,7 +17,7 @@ class Blog(models.Model):
     id = models.BigAutoField(db_column='ID', primary_key=True)
     title = models.CharField(db_column='Title', max_length=31)
     summary = models.CharField(db_column='Summary', max_length=1023)
-    text = models.TextField(db_column='Text')
+    content = models.TextField(db_column='Content')
     time_to_read = models.PositiveIntegerField(db_column='TimeToRead', default=0)
     cover = models.ImageField(db_column='Cover', upload_to=blog_covers_path)
     like_count = models.PositiveIntegerField(db_column='LikeCount', default=0)
