@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(db_column='ID', primary_key=True, serialize=False)),
                 ('title', models.CharField(db_column='Title', max_length=31)),
-                ('summary', models.CharField(db_column='Summary', max_length=63)),
+                ('summary', models.CharField(db_column='Summary', max_length=1023)),
                 ('text', models.TextField(db_column='Text')),
                 ('time_to_read', models.PositiveIntegerField(db_column='TimeToRead', default=0)),
                 ('cover', models.ImageField(db_column='Cover', upload_to=blog.models.Blog.blog_covers_path)),

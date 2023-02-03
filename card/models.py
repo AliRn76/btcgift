@@ -1,4 +1,6 @@
 from django.db import models
+
+from config.base_manager import BaseManager
 from user.models import User, Address
 
 
@@ -16,6 +18,8 @@ class Card(models.Model):
     is_active = models.BooleanField(db_column='IsActive', default=True)
     min_amount = models.PositiveIntegerField(db_column='MinAmount')
     max_amount = models.PositiveIntegerField(db_column='MaxAmount')
+
+    objects = BaseManager()
 
     class Meta:
         db_table = 'Card'
@@ -43,12 +47,13 @@ class PurchasedCard(models.Model):
 
 class Order(models.Model):
     STATE_CHOICES = (
-        (1, 'Processing'),
-        (2, 'Creating Wallet'),
-        (3, 'Charging Wallet'),
-        (4, 'Posting'),
-        (5, 'Received'),
-        (6, 'Confirmed'),
+        (1, 'Waiting For Payment'),  # Unpaid
+        (2, 'Payment Failed'),  # Unpaid
+        (3, 'Creating Wallet'),  # Paid
+        (4, 'Charging Wallet'),
+        (5, 'Posting'),
+        (6, 'Received'),
+        (7, 'Confirmed'),
     )
 
     id = models.BigAutoField(db_column='ID', primary_key=True)

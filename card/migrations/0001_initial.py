@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
             name='Order',
             fields=[
                 ('id', models.BigAutoField(db_column='ID', primary_key=True, serialize=False)),
-                ('state', models.PositiveSmallIntegerField(choices=[(1, 'Processing'), (2, 'Creating Wallet'), (3, 'Charging Wallet'), (4, 'Posting'), (5, 'Received'), (6, 'Confirmed')], db_column='State')),
+                ('state', models.PositiveSmallIntegerField(choices=[(1, 'Waiting For Payment'), (2, 'Payment Failed'), (3, 'Creating Wallet'), (4, 'Charging Wallet'), (5, 'Posting'), (6, 'Received'), (7, 'Confirmed')], db_column='State')),
                 ('receiver_name', models.CharField(db_column='ReceiverName', max_length=63)),
                 ('receiver_phone_number', models.CharField(db_column='ReceiverPhoneNumber', max_length=31)),
                 ('date_updated', models.DateTimeField(auto_now=True, db_column='DateUpdated')),

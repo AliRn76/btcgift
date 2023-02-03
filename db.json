@@ -967,5 +967,30 @@
       "date_created": "2023-02-02T21:30:22.745Z",
       "support_id": 1
     }
+  },
+  {
+    "model": "user.address",
+    "pk": 1,
+    "fields": {
+      "title": "",
+      "address": "تهران - مجیدیه شمالی - خیابان رسالت - خیابان حسینی",
+      "latitude": "35.74216278539311",
+      "longitude": "51.467866708465074",
+      "zip_code": "1671739813",
+      "is_tehran": true,
+      "user_id": 1,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "card.card",
+    "pk": 1,
+    "fields": {
+      "image_front": "card/a.png",
+      "image_back": "card/b10.png",
+      "is_active": true,
+      "min_amount": 0,
+      "max_amount": 1
+    }
   }
 ]

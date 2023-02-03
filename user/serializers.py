@@ -4,7 +4,7 @@ from rest_framework.exceptions import ValidationError
 from config.settings import OTP_EXP
 from config.utils import validate_phone_number
 from user.authentication import JWTAuthentication
-from config.messages import OPTSentSuccessfullyMessage
+from config.messages import OPTSentSuccessfullyMessage, SubmittedSuccessfullyMessage
 from user.models import User, Address
 
 
@@ -58,3 +58,8 @@ class AddressSerializer(serializers.ModelSerializer):
         validated_data['user_id'] = self.context['request'].user
         validated_data['is_tehran'] = True  # TODO: Neshan API
         return super().create(validated_data)
+
+    def to_representation(self, instance):
+        if self.context['request'].method == 'POST':
+            return {'detail': SubmittedSuccessfullyMessage}
+        return super().to_representation(instance)

@@ -7,6 +7,6 @@ urlpatterns = [
     path('card/', include('card.urls')),
     path('user/', include('user.urls')),
     path('faq/', include('faq.urls')),
-    # path('payment/', include('payment.urls')),
+    path('payment/', include('payment.urls')),
     path('support/', include('support.urls')),
 ]

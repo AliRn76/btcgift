@@ -5,6 +5,8 @@ from rest_framework.exceptions import ValidationError
 from config.utils import validate_phone_number
 from card.models import Order, PurchasedCard, Card
 from config.wallet import btc_to_toman
+from payment.jibimo import request_transaction_url
+from payment.models import Transaction
 
 
 class CardSerializer(serializers.ModelSerializer):
@@ -66,8 +68,21 @@ class OrderSerializer(serializers.ModelSerializer):
             **validated_data['card_id'],
             cost=btc_to_toman(btc_amount, single=True),
             code=base58.b58encode(f'Gift{purchased_card_count + 1}'.encode()).decode(),
-            card_id=Card.objects.get(min_amount__lte=btc_amount, max_amount__gte=btc_amount),
+            card_id=Card.objects.get_or_raise(min_amount__lte=btc_amount, max_amount__gte=btc_amount),
             previous_owner=user,
         )
         validated_data['card_id'] = card
-        return super().create(validated_data)
+        order = super().create(validated_data)
+        transaction = Transaction.objects.create(
+            amount=order.card_id.cost,
+            user_id=user,
+            order_id=order
+        )
+        # TODO: Check this payment part
+        self.context['gateway_url'] = request_transaction_url(transaction=transaction)
+        return order
+
+    def to_representation(self, instance):
+        if self.context['request'].method == 'POST':
+            return {'url': self.context['gateway_url']}
+        return super().to_representation(instance)

@@ -1,4 +1,5 @@
 import base58
+from rest_framework import status
 from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -11,7 +12,6 @@ from config.wallet import btc_to_toman
 
 
 class CardCostAPIView(APIView):
-
     def get(self, request, *args, **kwargs):
         amount = self.request.query_params.get('amount')
         return Response(data=btc_to_toman(amount))
@@ -25,7 +25,7 @@ class OrderAPIView(ListCreateAPIView):
         return Order.objects.filter(user_id=self.request.user.id)
 
 
-class RetrieveOrderAPIView(ListCreateAPIView, RetrieveAPIView):
+class RetrieveOrderAPIView(RetrieveAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = OrderSerializer
 

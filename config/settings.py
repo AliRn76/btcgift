@@ -12,8 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 QR_DIR = BASE_DIR / 'qr_codes'
 
-SECRET_KEY = utils.get_random_secret_key()
-# SECRET_KEY = 'local'
+# SECRET_KEY = utils.get_random_secret_key()
+SECRET_KEY = 'local'
 
 KAVENEGAR = '...'
 
