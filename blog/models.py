@@ -81,7 +81,7 @@ class BlogCommentManager(models.Manager):
 class BlogComment(models.Model):
     id = models.BigAutoField(db_column='ID', primary_key=True)
     is_approved = models.BooleanField(db_column='IsApproved', default=False)
-    text = models.TextField(db_column='Text', max_length=255)
+    text = models.TextField(db_column='Text', max_length=1023)
     date_created = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
     blog_id = models.ForeignKey(Blog, db_column='BlogID', on_delete=models.CASCADE)
     user_id = models.ForeignKey(User, db_column='UserID', on_delete=models.CASCADE)

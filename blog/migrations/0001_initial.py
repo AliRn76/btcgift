@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(db_column='ID', primary_key=True, serialize=False)),
                 ('is_approved', models.BooleanField(db_column='IsApproved', default=False)),
-                ('text', models.TextField(db_column='Text', max_length=255)),
+                ('text', models.TextField(db_column='Text', max_length=1023)),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_column='DateCreated')),
                 ('blog_id', models.ForeignKey(db_column='BlogID', on_delete=django.db.models.deletion.CASCADE, to='blog.blog')),
                 ('user_id', models.ForeignKey(db_column='UserID', on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),

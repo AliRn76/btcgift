@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('tracking_id', models.CharField(blank=True, db_column='TrackingID', max_length=31, null=True)),
                 ('trx', models.CharField(blank=True, db_column='trx', max_length=31, null=True)),
                 ('card_number', models.CharField(blank=True, db_column='CardNumber', max_length=31, null=True)),
+                ('card_owner', models.CharField(blank=True, db_column='CardOwner', max_length=63, null=True)),
                 ('is_successful', models.BooleanField(db_column='IsSuccessful', default=False)),
                 ('raw_date', models.JSONField(blank=True, db_column='RawData', null=True)),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_column='DateCreated')),
