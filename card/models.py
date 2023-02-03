@@ -9,6 +9,7 @@ class Card(models.Model):
     We should always have cards with 0-1 BTC
         Because we need it in OrderSerializer.create()
     """
+
     def card_images_path(self, file_name):
         return f'card/{file_name}'
 
@@ -30,6 +31,7 @@ class PurchasedCard(models.Model):
     When someone buy a card for someone else, we put his ID to previous_owner
     and "the" someone else to owner_phone_number
     """
+
     id = models.BigAutoField(db_column='ID', primary_key=True)
     owner_phone_number = models.CharField(db_column='OwnerPhoneNumber', max_length=31)
     btc_amount = models.FloatField(db_column='BTCAmount')
@@ -68,4 +70,3 @@ class Order(models.Model):
 
     class Meta:
         db_table = 'Order'
-

@@ -38,7 +38,7 @@ class Blog(models.Model):
         return like
 
     def view(self, ip: str | None):
-        """ User can view a blog every 'x' timedelta """
+        """User can view a blog every 'x' timedelta"""
         x = timedelta(minutes=1)
         if ip is None or BlogView.objects.filter(ip=ip, date_created__gte=(timezone.now() - x)).first():
             return
@@ -64,10 +64,15 @@ class Blog(models.Model):
 class BlogCommentManager(models.Manager):
     def first_10(self, blog_id, user_id):
         # TODO: How should we index when we have AND and OR together
-        return super().get_queryset().filter(
-            Q(is_approved=True) | Q(user_id=user_id),
-            blog_id=blog_id,
-        ).order_by('is_approved', '-id')[:10]
+        return (
+            super()
+            .get_queryset()
+            .filter(
+                Q(is_approved=True) | Q(user_id=user_id),
+                blog_id=blog_id,
+            )
+            .order_by('is_approved', '-id')[:10]
+        )
 
     def approved(self, blog_id, user_id):
         return super().get_queryset().filter(is_approved=True)

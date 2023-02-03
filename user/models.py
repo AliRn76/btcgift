@@ -1,6 +1,4 @@
-import re
 from django.db import models
-# from configs.base_manager import BaseManager
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
@@ -31,7 +29,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     id = models.BigAutoField(db_column='ID', primary_key=True)
-    phone_number = models.CharField(db_column='PhoneNumber', max_length=31,  unique=True)
+    phone_number = models.CharField(db_column='PhoneNumber', max_length=31, unique=True)
     password = models.CharField(db_column='Password', max_length=63, blank=True, null=True)
     first_name = models.CharField(db_column='FirstName', max_length=15, default='')
     last_name = models.CharField(db_column='LastName', max_length=15, default='')

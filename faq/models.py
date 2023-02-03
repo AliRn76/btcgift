@@ -20,4 +20,3 @@ class FAQ(models.Model):
 
     class Meta:
         db_table = 'FAQ'
-

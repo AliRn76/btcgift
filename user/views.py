@@ -56,4 +56,3 @@ class AddressAPIView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = AddressSerializer
     queryset = Address.objects.all()
-

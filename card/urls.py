@@ -8,4 +8,3 @@ urlpatterns = [
     path('<str:id>/', RetrieveOrderAPIView.as_view()),
     path('own/<str:id>/', MyCardAPIView.as_view()),
 ]
-

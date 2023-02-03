@@ -9,4 +9,3 @@ class CardAdmin(admin.ModelAdmin):
 admin.site.register(Card, CardAdmin)
 admin.site.register(PurchasedCard)
 admin.site.register(Order)
-

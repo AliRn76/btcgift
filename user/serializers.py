@@ -18,7 +18,6 @@ class PhoneNumberSerializer(serializers.Serializer):
 
 
 class OTPSerializer(PhoneNumberSerializer):
-
     def to_representation(self, instance):
         return {'detail': OPTSentSuccessfullyMessage, 'otp_exp': OTP_EXP}
 

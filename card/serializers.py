@@ -73,11 +73,7 @@ class OrderSerializer(serializers.ModelSerializer):
         )
         validated_data['card_id'] = card
         order = super().create(validated_data)
-        transaction = Transaction.objects.create(
-            amount=order.card_id.cost,
-            user_id=user,
-            order_id=order
-        )
+        transaction = Transaction.objects.create(amount=order.card_id.cost, user_id=user, order_id=order)
         # TODO: Check this payment part
         self.context['gateway_url'] = request_transaction_url(transaction=transaction)
         return order

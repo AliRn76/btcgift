@@ -16,4 +16,4 @@ def client_ip(context):
 
 
 def generate_otp():
-    return random.randint(10**(OTP_LEN-1), (10**OTP_LEN)-1)
+    return random.randint(10 ** (OTP_LEN - 1), (10**OTP_LEN) - 1)

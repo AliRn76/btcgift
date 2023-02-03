@@ -15,10 +15,7 @@ class CreateSupportSerializer(serializers.ModelSerializer):
         validated_data['user_id'] = self.context['request'].user
         support = Support.objects.create(subject=validated_data['subject'], user_id=self.context['request'].user)
         SupportMessages.objects.create(
-            message=validated_data['message'],
-            file=validated_data['file'],
-            is_answer=False,
-            support_id=support
+            message=validated_data['message'], file=validated_data['file'], is_answer=False, support_id=support
         )
         return support
 

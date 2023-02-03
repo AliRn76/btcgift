@@ -1,4 +1,3 @@
-
 """
 Django settings for ruby project.
 Author Ali RajabNezhad 30 Dec 2022
@@ -24,7 +23,7 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://api.btcgift.shop']
 CORS_ALLOWED_ORIGINS = [
     'https://btcgift.shohp',
-    'http://localhost:3000'
+    'http://localhost:3000',
 ]
 
 INSTALLED_APPS = [
@@ -35,9 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'corsheaders',
-
     'faq',
     'user',
     'blog',
@@ -86,8 +83,8 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {'anon': '30 /min'},
-    'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer', ),
-    'DEFAULT_THROTTLE_CLASSES': ['rest_framework.throttling.AnonRateThrottle', ],
+    'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
+    'DEFAULT_THROTTLE_CLASSES': ['rest_framework.throttling.AnonRateThrottle'],
     'DEFAULT_AUTHENTICATION_CLASSES': ['user.authentication.JWTAuthentication'],
 }
 
