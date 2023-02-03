@@ -33,6 +33,13 @@ class RefreshTokenAPIView(APIView):
         return Response(data=tokens, status=status.HTTP_202_ACCEPTED)
 
 
+class LogoutAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, *args, **kwargs):
+        return Response(status=status.HTTP_202_ACCEPTED)
+
+
 class ProfileAPIView(RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserProfileSerializer
