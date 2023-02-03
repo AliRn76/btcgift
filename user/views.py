@@ -1,8 +1,12 @@
+from rest_framework import status
 from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from config.utils import generate_otp
 from config.messages import ProfileUpdatedMessage
+from user.authentication import JWTAuthentication
 from user.models import Address
 from user.serializers import LoginSerializer, AddressSerializer, OTPSerializer, UserProfileSerializer
 
@@ -19,6 +23,14 @@ class OTPAPIView(CreateAPIView):
 
 class LoginAPIView(CreateAPIView):
     serializer_class = LoginSerializer
+
+
+class RefreshTokenAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, *args, **kwargs):
+        tokens = JWTAuthentication.encode_jwt_token(self.request.user)
+        return Response(data=tokens, status=status.HTTP_202_ACCEPTED)
 
 
 class ProfileAPIView(RetrieveUpdateAPIView):

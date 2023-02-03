@@ -7,7 +7,7 @@ from config.messages import SubmittedSuccessfullyMessage
 class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
-        fields = '__all__'
+        exclude = ['content']
 
 
 class BlogMinimumSerializer(serializers.ModelSerializer):
