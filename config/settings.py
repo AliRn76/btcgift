@@ -95,7 +95,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '| {levelname} | {asctime} | {message}',
+            'format': '| {asctime} | {message}',
             'style': '{',
         },
     },
@@ -108,7 +108,8 @@ LOGGING = {
             'backupCount': 3
         },
         'console': {
-            'class': 'logging.StreamHandler',
+            'class': 'rich.logging.RichHandler',
+            'show_time': False,
             'formatter': 'verbose'
         },
     },

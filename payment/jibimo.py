@@ -1,13 +1,12 @@
 import json
-import logging
-
 import requests
+
+from config.utils import log_warning, log_error, log_info
 from payment.exceptions import GatewayException
 from payment.models import Transaction
 
 # from configs.settings import JIBIMO_API_KEY
 JIBIMO_API_KEY = 'XXXX'
-logger = logging.getLogger('root')
 
 
 class Jibimo:
@@ -30,15 +29,15 @@ class Jibimo:
         try:
             res = requests.post(url=url, data=json.dumps(payload), headers=header, verify=False)
         except requests.exceptions.ConnectionError as e:
-            logger.error(f'[Jibimo] Connection Error | {e}')
+            log_error('Jibimo', title='Connection Error')
             raise GatewayException
         if res.status_code != 200:
-            logger.error(f'[Jibimo] Invalid Status | ({res.status_code}) -> {res.content}')
+            log_error('Jibimo', title='Invalid Status', message=f'({res.status_code}) -> {res.content}')
             raise GatewayException
         try:
             return res.json(), res.status_code
         except requests.exceptions.JSONDecodeError as e:
-            logger.error(f'[Jibimo] Invalid Response | {e}')
+            log_error('Jibimo', title='Invalid Response')
             raise GatewayException
 
     @classmethod
@@ -56,7 +55,7 @@ class Jibimo:
         }
         response, status_code = cls._send_request(url=cls.request_url, payload=payload)
         transaction.set_trx(response['trx'])
-        logger.info(f'[Jibimo] New Transaction URL | UserID: {transaction.user_id.id} Amount: {transaction.amount:,}')
+        log_info('Jibimo', title='New Transaction URL', message=f'UserID: {transaction.user_id.id} Amount: {transaction.amount:,}')
         return response['link']
 
     @classmethod
@@ -87,7 +86,7 @@ class Jibimo:
         """
         transaction.verified(response)
         if response.get('status') != 1:
-            # Request Was Not Successful
+            log_warning('Jibimo', title='Invalid Verifying Status',
+                        message=f'Status: {response.get("status")}')
             return False
-        logger.info(f'[Jibimo] Transaction Verified | TransactionID: {transaction.id} Amount: {transaction.amount:,}')
         return True

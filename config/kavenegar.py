@@ -1,10 +1,7 @@
 from kavenegar import APIException, HTTPException
 from config.exceptions import KavenegarException
 from config.settings import KAVENEGAR
-import logging
-
-
-logger = logging.getLogger('root')
+from config.utils import log_info, log_error
 
 
 def send_otp_sms(phone_number, otp, option='sms'):
@@ -16,8 +13,8 @@ def send_otp_sms(phone_number, otp, option='sms'):
         # Default Is SMS
     }
     try:
-        KAVENEGAR.verify_lookup(param)
-        logger.error(f'[OTP] Sent Successfully | {phone_number} --> {otp}')
+        # KAVENEGAR.verify_lookup(param)
+        log_info('OTP', title='Sent Successfully', message=f'{phone_number} --> {otp}')
     except (APIException, HTTPException) as e:
-        logger.error(f'[OTP] Request Exception | {e}')
+        log_error('OTP', title='Request Exception', message=e)
         raise KavenegarException

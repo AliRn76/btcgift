@@ -4,6 +4,7 @@ import logging
 from bit import PrivateKey
 from bitcoinaddress import Wallet
 
+from config.utils import log_warning, log_info
 
 logger = logging.getLogger('root')
 
@@ -27,12 +28,11 @@ def btc_to_toman(amount: float | str = None, single: bool = False) -> dict[str, 
     url = 'https://api.nobitex.ir/v2/orderbook/BTCIRT'
     response = requests.get(url)
     if response.status_code != 200 or (res := json.loads(response.text))['status'] != 'ok':
-        logger.warning(f'[Nobitex] Invalid ًResponse | {response.status_code} -> {res}')
+        log_warning('Nobitex', title='Invalid ًResponse', message=f'{response.status_code} -> {res}')
         return 0
 
     btc = int(res['bids'][0][0]) / 10
-    logger.info(f'[Nobitex] Responded Successfully | BTC: {btc:,}')
-
+    log_info('Nobitex', title='Responded Successfully', message=f'BTC: {btc:,}')
     amounts = [
         0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009,
         0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008, 0.009,
