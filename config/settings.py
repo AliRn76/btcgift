@@ -17,6 +17,7 @@ SECRET_KEY = 'local'
 KAVENEGAR = '...'
 
 DEBUG = True
+SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ['*']
 
