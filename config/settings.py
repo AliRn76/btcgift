@@ -23,6 +23,7 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://api.btcgift.shop']
 CORS_ALLOWED_ORIGINS = [
     'https://btcgift.shop',
+    'https://btc.league23.ir',
     'http://localhost:3000',
 ]
 
