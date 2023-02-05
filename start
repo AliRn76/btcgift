@@ -3,5 +3,5 @@
 gunicorn \
 config.wsgi:application \
 --bind 0.0.0.0:75 \
---log-level DEBUG \
+--log-level Info \
 --reload
