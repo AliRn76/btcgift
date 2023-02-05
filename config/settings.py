@@ -22,7 +22,7 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://api.btcgift.shop']
 CORS_ALLOWED_ORIGINS = [
-    'https://btcgift.shohp',
+    'https://btcgift.shop',
     'http://localhost:3000',
 ]
 
