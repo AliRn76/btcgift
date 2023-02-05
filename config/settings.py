@@ -2,19 +2,28 @@
 Django settings for ruby project.
 Author Ali RajabNezhad 30 Dec 2022
 """
+import os
 from datetime import timedelta
 from pathlib import Path
-from django.core.management import utils
-
+from dotenv import dotenv_values
+from kavenegar import KavenegarAPI
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = dotenv_values(BASE_DIR / '.env')
+
 QR_DIR = BASE_DIR / 'qr_codes'
 
-# SECRET_KEY = utils.get_random_secret_key()
-SECRET_KEY = 'local'
+SECRET_KEY = env['SECRET_KEY']
 
-KAVENEGAR = '...'
+STORAGE_ENDPOINT_URL = env['STORAGE_ENDPOINT_URL']
+STORAGE_ACCESS_KEY = env['STORAGE_ACCESS_KEY']
+STORAGE_SECRET_KEY = env['STORAGE_SECRET_KEY']
+BUCKET_NAME = env['BUCKET_NAME']
+
+KAVENEGAR_API_KEY = env['KAVENEGAR_API_KEY']
+
+KAVENEGAR = KavenegarAPI(KAVENEGAR_API_KEY)
 
 DEBUG = True
 
@@ -76,6 +85,41 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGS_DIR = BASE_DIR / 'logs'
+if not os.path.exists(LOGS_DIR):
+    os.makedirs(LOGS_DIR)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '| {levelname} | {asctime} | {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'formatter': 'verbose',
+            'filename': LOGS_DIR / 'btcgift.log',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'maxBytes': 1024 * 1024 * 100,  # 100 MB,
+            'backupCount': 3
+        },
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'root': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': False
+        },
+    },
+}
 
 WSGI_APPLICATION = 'config.wsgi.application'
 

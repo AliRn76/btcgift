@@ -1,8 +1,11 @@
 import json
 import requests
+import logging
 from bit import PrivateKey
 from bitcoinaddress import Wallet
 
+
+logger = logging.getLogger('root')
 
 dynamic_revenue = 0.05
 static_revenue = 200_000
@@ -24,8 +27,11 @@ def btc_to_toman(amount: float | str = None, single: bool = False) -> dict[str, 
     url = 'https://api.nobitex.ir/v2/orderbook/BTCIRT'
     response = requests.get(url)
     if response.status_code != 200 or (res := json.loads(response.text))['status'] != 'ok':
+        logger.warning(f'[Nobitex] Invalid ًResponse | {response.status_code} -> {res}')
         return 0
+
     btc = int(res['bids'][0][0]) / 10
+    logger.info(f'[Nobitex] Responded Successfully | BTC: {btc:,}')
 
     amounts = [
         0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009,

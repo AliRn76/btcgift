@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from config.kavenegar import send_otp_sms
 from config.utils import generate_otp
 from config.messages import ProfileUpdatedMessage
 from user.authentication import JWTAuthentication
@@ -18,7 +19,7 @@ class OTPAPIView(CreateAPIView):
         phone_number = serializer.validated_data['phone_number']
         otp = generate_otp()
         # REDIS.set(phone_number, otp, ex=OTP_EXP)
-        # send_otp_sms(phone_number, otp)
+        send_otp_sms(phone_number, otp)
 
 
 class LoginAPIView(CreateAPIView):

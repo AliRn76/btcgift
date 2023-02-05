@@ -1,10 +1,13 @@
 import json
+import logging
+
 import requests
 from payment.exceptions import GatewayException
 from payment.models import Transaction
 
 # from configs.settings import JIBIMO_API_KEY
 JIBIMO_API_KEY = 'XXXX'
+logger = logging.getLogger('root')
 
 
 class Jibimo:
@@ -26,14 +29,16 @@ class Jibimo:
         }
         try:
             res = requests.post(url=url, data=json.dumps(payload), headers=header, verify=False)
-        except requests.exceptions.ConnectionError:
+        except requests.exceptions.ConnectionError as e:
+            logger.error(f'[Jibimo] Connection Error | {e}')
             raise GatewayException
         if res.status_code != 200:
-            print(f'Gateway Exception [{res.status_code}]: {res.content}')
+            logger.error(f'[Jibimo] Invalid Status | ({res.status_code}) -> {res.content}')
             raise GatewayException
         try:
             return res.json(), res.status_code
-        except requests.exceptions.JSONDecodeError:
+        except requests.exceptions.JSONDecodeError as e:
+            logger.error(f'[Jibimo] Invalid Response | {e}')
             raise GatewayException
 
     @classmethod
@@ -51,6 +56,7 @@ class Jibimo:
         }
         response, status_code = cls._send_request(url=cls.request_url, payload=payload)
         transaction.set_trx(response['trx'])
+        logger.info(f'[Jibimo] New Transaction URL | UserID: {transaction.user_id.id} Amount: {transaction.amount:,}')
         return response['link']
 
     @classmethod
@@ -83,4 +89,5 @@ class Jibimo:
         if response.get('status') != 1:
             # Request Was Not Successful
             return False
+        logger.info(f'[Jibimo] Transaction Verified | TransactionID: {transaction.id} Amount: {transaction.amount:,}')
         return True
