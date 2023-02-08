@@ -14,18 +14,18 @@ from botocore.exceptions import ClientError
 
 logger = logging.getLogger('root')
 
-s3_resource = boto3.resource(
-    's3',
-    endpoint_url=STORAGE_ENDPOINT_URL,
-    aws_access_key_id=STORAGE_ACCESS_KEY,
-    aws_secret_access_key=STORAGE_SECRET_KEY,
-)
-s3_client = boto3.client(
-    's3',
-    endpoint_url=STORAGE_ENDPOINT_URL,
-    aws_access_key_id=STORAGE_ACCESS_KEY,
-    aws_secret_access_key=STORAGE_SECRET_KEY,
-)
+# s3_resource = boto3.resource(
+#     's3',
+#     endpoint_url=STORAGE_ENDPOINT_URL,
+#     aws_access_key_id=STORAGE_ACCESS_KEY,
+#     aws_secret_access_key=STORAGE_SECRET_KEY,
+# )
+# s3_client = boto3.client(
+#     's3',
+#     endpoint_url=STORAGE_ENDPOINT_URL,
+#     aws_access_key_id=STORAGE_ACCESS_KEY,
+#     aws_secret_access_key=STORAGE_SECRET_KEY,
+# )
 
 
 def list_buckets():
