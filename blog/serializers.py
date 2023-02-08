@@ -18,7 +18,7 @@ class BlogMinimumSerializer(serializers.ModelSerializer):
 
 
 class BlogCommentSerializer(serializers.ModelSerializer):
-    user = MinUserProfileSerializer(source='user_id')
+    user = MinUserProfileSerializer(source='user_id', read_only=True)
 
     class Meta:
         model = BlogComment
