@@ -8,7 +8,7 @@ from pathlib import Path
 from dotenv import dotenv_values
 from kavenegar import KavenegarAPI
 
-from config.storage import STORAGE_MEDIA_URL
+# from config.storage import STORAGE_MEDIA_URL
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
