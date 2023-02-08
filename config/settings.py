@@ -8,6 +8,8 @@ from pathlib import Path
 from dotenv import dotenv_values
 from kavenegar import KavenegarAPI
 
+from config.storage import STORAGE_MEDIA_URL
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = dotenv_values(BASE_DIR / '.env')
@@ -99,6 +101,7 @@ LOGGING = {
             'style': '{',
         },
     },
+    # TODO: volume LOGS_DIR
     'handlers': {
         'file': {
             'formatter': 'verbose',
@@ -189,3 +192,5 @@ LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL = STORAGE_MEDIA_URL + '/'
+# MEDIA_ROOT = STORAGE_MEDIA_URL

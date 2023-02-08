@@ -54,7 +54,7 @@ class User(AbstractBaseUser):
         return self.is_admin
 
     @property
-    def full_name(self):
+    def get_full_name(self):
         return f'{self.first_name or ""} {self.last_name or ""}'.strip()
 
     def has_perm(self, perm, obj=None):

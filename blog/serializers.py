@@ -2,6 +2,7 @@ from rest_framework import serializers
 from blog.models import Blog, BlogComment, BlogLike
 from config.utils import client_ip
 from config.messages import SubmittedSuccessfullyMessage
+from user.serializers import MinUserProfileSerializer
 
 
 class BlogSerializer(serializers.ModelSerializer):
@@ -17,6 +18,8 @@ class BlogMinimumSerializer(serializers.ModelSerializer):
 
 
 class BlogCommentSerializer(serializers.ModelSerializer):
+    user = MinUserProfileSerializer(source='user_id')
+
     class Meta:
         model = BlogComment
         exclude = ['user_id', 'blog_id']

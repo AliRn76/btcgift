@@ -1,7 +1,16 @@
 import boto3
 import logging
 from botocore.exceptions import ClientError
-from config.settings import STORAGE_ENDPOINT_URL, STORAGE_ACCESS_KEY, STORAGE_SECRET_KEY, BUCKET_NAME
+
+# from dotenv import dotenv_values
+# # from config.settings import STORAGE_ENDPOINT_URL, STORAGE_ACCESS_KEY, STORAGE_SECRET_KEY, BUCKET_NAME
+# env = dotenv_values('/home/ali/dev/btcgift/.env')
+# STORAGE_ENDPOINT_URL = env['STORAGE_ENDPOINT_URL']
+# STORAGE_MEDIA_URL = env['STORAGE_MEDIA_URL']
+# STORAGE_ACCESS_KEY = env['STORAGE_ACCESS_KEY']
+# STORAGE_SECRET_KEY = env['STORAGE_SECRET_KEY']
+# BUCKET_NAME = env['BUCKET_NAME']
+
 
 logger = logging.getLogger('root')
 
@@ -39,17 +48,17 @@ def get_bucket_cors():
             logger.error(e)
 
 
-def upload_object(file_path: str, private: bool = False):
+def upload_object(file_path: str, private: bool = False) -> str:
     try:
         bucket = s3_resource.Bucket(BUCKET_NAME)
         object_name = file_path[file_path.rfind('/') + 1:]  # nft.webp
-
         with open(file_path, "rb") as file:
             bucket.put_object(
-                ACL='private' if private else 'public',
+                ACL='private' if private else 'public-read',
                 Body=file,
                 Key=object_name
             )
+        return f'/{object_name}'
     except ClientError as e:
         logger.error(e)
 
@@ -59,11 +68,14 @@ def objects_list():
         bucket = s3_resource.Bucket(BUCKET_NAME)
 
         for obj in bucket.objects.all():
+            print(obj)
             logging.info(f"object_name: {obj.key}, last_modified: {obj.last_modified}")
 
     except ClientError as e:
         logger.error(e)
 
 
-objects_list()
+# upload_object(file_path='/home/ali/dev/btcgift/media/blog/mining.jpg')
+# 'https://btcgift.s3.ir-thr-at1.arvanstorage.com/mining.jpg'
+# objects_list()
 

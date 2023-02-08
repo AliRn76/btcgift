@@ -41,6 +41,14 @@ class LoginSerializer(PhoneNumberSerializer):
         return token | data
 
 
+class MinUserProfileSerializer(serializers.ModelSerializer):
+    full_name = serializers.ReadOnlyField(source='get_full_name')
+
+    class Meta:
+        model = User
+        fields = ['phone_number', 'full_name', 'is_admin', 'is_male', 'date_joined']
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

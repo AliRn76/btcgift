@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models.signals import post_save, pre_save
+from django.dispatch import receiver
 
 from config.base_manager import BaseManager
+from config.storage import upload_object
 from user.models import User, Address
 
 
@@ -24,6 +27,14 @@ class Card(models.Model):
 
     class Meta:
         db_table = 'Card'
+
+# TODO: Complete this part
+# @receiver(post_save, sender=Card)
+# def storage_card_images(sender, instance=None, *args, **kwargs):
+#     # breakpoint()
+#     instance.image_front = upload_object(instance.image_front.path)
+#     instance.image_back = upload_object(instance.image_back.path)
+#     instance.save()
 
 
 class PurchasedCard(models.Model):
