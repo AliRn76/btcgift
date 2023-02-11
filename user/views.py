@@ -50,7 +50,8 @@ class ProfileAPIView(RetrieveUpdateAPIView):
 
     def update(self, request, *args, **kwargs):
         super().update(request, *args, **kwargs)
-        return {'detail': ProfileUpdatedMessage}
+        data = {'detail': ProfileUpdatedMessage}
+        return Response(data=data, status=status.HTTP_202_ACCEPTED)
 
 
 class AddressAPIView(ListCreateAPIView):
