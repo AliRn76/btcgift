@@ -8,13 +8,20 @@ from card.models import PurchasedCard, Order
 from card.serializers import OrderSerializer, MyCardsSerializer
 from rest_framework.views import APIView
 
-from config.wallet import btc_to_toman
+from config.settings import STATIC_REVENUE, DYNAMIC_REVENUE
+from config.wallet import btc_to_toman, calculate_transaction_fee
 
 
 class CardCostAPIView(APIView):
     def get(self, request, *args, **kwargs):
-        amount = self.request.query_params.get('amount')
-        return Response(data=btc_to_toman(amount))
+        one_btc_toman = btc_to_toman(amount=1, single=True)
+        data = {
+            'btc': one_btc_toman,
+            'fee': calculate_transaction_fee(one_btc_toman),
+            'dynamic_revenue': DYNAMIC_REVENUE,
+            'static_revenue': STATIC_REVENUE,
+        }
+        return Response(data=data)
 
 
 class OrderAPIView(ListCreateAPIView):

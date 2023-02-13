@@ -4,24 +4,23 @@ import logging
 from bit import PrivateKey
 from bitcoinaddress import Wallet
 
+from config.settings import DYNAMIC_REVENUE, STATIC_REVENUE
 from config.utils import log_warning, log_info
 
 logger = logging.getLogger('root')
 
-dynamic_revenue = 0.05
-static_revenue = 200_000
-
 
 def calculate_revenue(amount: int) -> int:
-    return int(amount * dynamic_revenue) + static_revenue
+    return int(amount * DYNAMIC_REVENUE) + STATIC_REVENUE
 
 
-def calculate_transaction_fee(btc: float) -> int:
-    return int(btc * 0.00025)
+def calculate_transaction_fee(one_btc_toman: float) -> int:
+    return int(one_btc_toman * 0.00025)
 
 
-def calculate_final_cost(amount: float, btc: float):
-    return (cost := int(amount * btc)) + calculate_revenue(cost) + calculate_transaction_fee(btc)
+def calculate_final_cost(amount: float, one_btc_toman: float):
+    cost = int(amount * one_btc_toman)
+    return cost + calculate_revenue(amount) + calculate_transaction_fee(one_btc_toman)
 
 
 def btc_to_toman(amount: float | str = None, single: bool = False) -> dict[str, int] | int:
@@ -31,8 +30,8 @@ def btc_to_toman(amount: float | str = None, single: bool = False) -> dict[str, 
         log_warning('Nobitex', title='Invalid ًResponse', message=f'{response.status_code} -> {res}')
         return 0
 
-    btc = int(res['bids'][0][0]) / 10
-    log_info('Nobitex', title='Responded Successfully', message=f'BTC: {btc:,}')
+    one_btc_toman = int(res['bids'][0][0]) / 10
+    log_info('Nobitex', title='Responded Successfully', message=f'BTC: {one_btc_toman:,}')
     amounts = [
         0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008, 0.0009,
         0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008, 0.009,
@@ -41,9 +40,9 @@ def btc_to_toman(amount: float | str = None, single: bool = False) -> dict[str, 
         1,
     ] if amount is None else [float(amount)]
     if single:
-        return calculate_final_cost(amounts[0], btc)
+        return calculate_final_cost(amounts[0], one_btc_toman)
     else:
-        return {str(a): calculate_final_cost(a, btc) for a in amounts}
+        return {str(a): calculate_final_cost(a, one_btc_toman) for a in amounts}
 
 
 # print(btc_to_toman(0.0005))
