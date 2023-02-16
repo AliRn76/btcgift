@@ -10,7 +10,7 @@ from config.utils import log_warning, log_info
 logger = logging.getLogger('root')
 
 
-def calculate_revenue(amount: int) -> int:
+def calculate_revenue(amount: float) -> int:
     return int(amount * DYNAMIC_REVENUE) + STATIC_REVENUE
 
 
