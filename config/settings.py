@@ -8,8 +8,6 @@ from pathlib import Path
 from dotenv import dotenv_values
 from kavenegar import KavenegarAPI
 
-# from config.storage import STORAGE_MEDIA_URL
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = dotenv_values(BASE_DIR / '.env')
@@ -17,11 +15,6 @@ env = dotenv_values(BASE_DIR / '.env')
 QR_DIR = BASE_DIR / 'qr_codes'
 
 SECRET_KEY = env['SECRET_KEY']
-
-STORAGE_ENDPOINT_URL = env['STORAGE_ENDPOINT_URL']
-STORAGE_ACCESS_KEY = env['STORAGE_ACCESS_KEY']
-STORAGE_SECRET_KEY = env['STORAGE_SECRET_KEY']
-BUCKET_NAME = env['BUCKET_NAME']
 
 KAVENEGAR_API_KEY = env['KAVENEGAR_API_KEY']
 
@@ -171,6 +164,24 @@ AUTH_PASSWORD_VALIDATORS = [
 # }
 
 
+AWS_ACCESS_KEY_ID = env['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = env['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = env['AWS_STORAGE_BUCKET_NAME']
+AWS_S3_ENDPOINT_URL = env['AWS_S3_ENDPOINT_URL']
+AWS_S3_CUSTOM_DOMAIN = env['AWS_S3_CUSTOM_DOMAIN'] + '/' + AWS_STORAGE_BUCKET_NAME
+
+# Defaults
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+
+# Storages
+DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
+STATICFILES_STORAGE = 'config.storage_backends.StaticStorage'
+
+# Static, Media
+STATIC_URL = AWS_S3_CUSTOM_DOMAIN + '/static/'
+MEDIA_URL = AWS_S3_CUSTOM_DOMAIN + '/media/'
+
 AUTH_USER_MODEL = 'user.User'
 
 OTP_LEN = 4
@@ -187,13 +198,4 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
-
-
 LOGIN_REDIRECT_URL = '/'
-
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-# MEDIA_URL = STORAGE_MEDIA_URL + '/'
-# MEDIA_ROOT = STORAGE_MEDIA_URL
