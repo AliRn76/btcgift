@@ -20,7 +20,7 @@ def calculate_transaction_fee(one_btc_toman: float) -> int:
 
 def calculate_final_cost(amount: float, one_btc_toman: float):
     cost = int(amount * one_btc_toman)
-    return cost + calculate_revenue(amount) + calculate_transaction_fee(one_btc_toman)
+    return cost + calculate_revenue(cost) + calculate_transaction_fee(one_btc_toman)
 
 
 def btc_to_toman(amount: float | str = None, single: bool = False) -> dict[str, int] | int:
