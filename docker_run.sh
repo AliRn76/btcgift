@@ -9,4 +9,3 @@ docker run \
 --restart always \
 -d \
 btcgift:v1
-docker logs -f btcgift
