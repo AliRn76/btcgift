@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  pip:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,13 +19,17 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
-      - name: Install Requirements (Test)
+      - name: Install Requirements
         run: pip install -r requirements.txt\
 
-      - name: Deploy to ${{ secrets.SSH_HOST }}
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.SSH_USERNAME }}
-          host: ${{ secrets.SSH_HOST }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: 'cd /root/dev/btcgift && ./deploy.sh'
+
+  deploy:
+    - runs-on: ubuntu-latest
+      steps:
+        - name: Deploy to ${{ secrets.SSH_HOST }}
+          uses: appleboy/ssh-action@master
+          with:
+            username: ${{ secrets.SSH_USERNAME }}
+            host: ${{ secrets.SSH_HOST }}
+            password: ${{ secrets.SSH_PASSWORD }}
+            script: 'cd /root/dev/btcgift && ./deploy.sh'
