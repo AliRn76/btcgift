@@ -1,4 +1,4 @@
-name: Initial Action
+name: Deployment
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  pip:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,20 +19,9 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
-      - name: Install Requirements
+      - name: Install Requirements (Test)
         run: pip install -r requirements.txt\
 
-      - name: Deploy to ${{ secrets.SSH_HOST }}
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.SSH_USERNAME }}
-          host: ${{ secrets.SSH_HOST }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          script: 'cd /root/dev/btcgift && ./deploy.sh'
-
-  deployment:
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to ${{ secrets.SSH_HOST }}
         uses: appleboy/ssh-action@master
         with:
