@@ -5,6 +5,6 @@ urlpatterns = [
     path('', OrderAPIView.as_view()),
     path('own/', MyCardsAPIView.as_view()),
     path('costs/', CardCostAPIView.as_view()),
-    path('<str:id>/', RetrieveOrderAPIView.as_view()),
+    path('<int:id>/', RetrieveOrderAPIView.as_view()),
     path('own/<str:id>/', MyCardAPIView.as_view()),
 ]

@@ -109,6 +109,8 @@ LOGGING = {
         'console': {
             'class': 'rich.logging.RichHandler',
             'show_time': False,
+            'show_path': False,
+            'tracebacks_word_wrap': False,
             'formatter': 'verbose'
         },
     },
