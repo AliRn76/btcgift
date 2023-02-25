@@ -3,10 +3,10 @@ from rest_framework import status
 from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from card.models import PurchasedCard, Order, Card
 from card.serializers import OrderSerializer, MyCardsSerializer, CardSerializer
-from rest_framework.views import APIView
 
 from config.settings import STATIC_REVENUE, DYNAMIC_REVENUE
 from config.wallet import btc_to_toman, calculate_transaction_fee
