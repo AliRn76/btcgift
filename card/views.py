@@ -4,8 +4,8 @@ from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIV
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from card.models import PurchasedCard, Order
-from card.serializers import OrderSerializer, MyCardsSerializer
+from card.models import PurchasedCard, Order, Card
+from card.serializers import OrderSerializer, MyCardsSerializer, CardSerializer
 from rest_framework.views import APIView
 
 from config.settings import STATIC_REVENUE, DYNAMIC_REVENUE
@@ -15,11 +15,13 @@ from config.wallet import btc_to_toman, calculate_transaction_fee
 class CardCostAPIView(APIView):
     def get(self, request, *args, **kwargs):
         one_btc_toman = btc_to_toman(amount=1, single=True)
+        cards = Card.objects.filter(is_active=True)
         data = {
             'btc': one_btc_toman,
             'fee': calculate_transaction_fee(one_btc_toman),
             'dynamic_revenue': DYNAMIC_REVENUE,
             'static_revenue': STATIC_REVENUE,
+            'cards': CardSerializer(cards, many=True).data
         }
         return Response(data=data)
 

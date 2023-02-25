@@ -1,9 +1,6 @@
 from django.db import models
-from django.db.models.signals import post_save, pre_save
-from django.dispatch import receiver
 
 from config.base_manager import BaseManager
-from config.storage import upload_object
 from user.models import User, Address
 
 
@@ -20,8 +17,8 @@ class Card(models.Model):
     image_front = models.ImageField(db_column='ImageFront', upload_to=card_images_path)
     image_back = models.ImageField(db_column='ImageBack', upload_to=card_images_path)
     is_active = models.BooleanField(db_column='IsActive', default=True)
-    min_amount = models.PositiveIntegerField(db_column='MinAmount')
-    max_amount = models.PositiveIntegerField(db_column='MaxAmount')
+    min_amount = models.FloatField(db_column='MinAmount')
+    max_amount = models.FloatField(db_column='MaxAmount')
 
     objects = BaseManager()
 

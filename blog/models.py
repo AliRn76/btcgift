@@ -39,7 +39,7 @@ class Blog(models.Model):
 
     def view(self, ip: str | None):
         """User can view a blog every 'x' timedelta"""
-        x = timedelta(minutes=1)
+        x = timedelta(minutes=10)
         if ip is None or BlogView.objects.filter(ip=ip, date_created__gte=(timezone.now() - x)).first():
             return
 

@@ -23,8 +23,8 @@ class Migration(migrations.Migration):
                 ('image_front', models.ImageField(db_column='ImageFront', upload_to=card.models.Card.card_images_path)),
                 ('image_back', models.ImageField(db_column='ImageBack', upload_to=card.models.Card.card_images_path)),
                 ('is_active', models.BooleanField(db_column='IsActive', default=True)),
-                ('min_amount', models.PositiveIntegerField(db_column='MinAmount')),
-                ('max_amount', models.PositiveIntegerField(db_column='MaxAmount')),
+                ('min_amount', models.FloatField(db_column='MinAmount')),
+                ('max_amount', models.FloatField(db_column='MaxAmount')),
             ],
             options={
                 'db_table': 'Card',
